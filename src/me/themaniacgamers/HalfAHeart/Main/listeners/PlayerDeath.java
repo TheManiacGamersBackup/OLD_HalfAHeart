@@ -42,6 +42,7 @@ public class PlayerDeath implements Listener {
 
         Player p = e.getEntity().getPlayer();
         e.setDeathMessage(null);
+        e.setKeepLevel(true);
         e.setKeepInventory(true);
         Player k = e.getEntity().getKiller();
         UUID playerUUID = p.getUniqueId();
@@ -81,18 +82,143 @@ public class PlayerDeath implements Listener {
                 p.setLevel(p.getLevel() - 25);
                 k.setLevel(k.getLevel() + 50);
             }
+            if (PlayerStats.bounty.containsKey(p.getUniqueId())) {
+                if (PlayerStats.bounty.get(playerUUID) == 1000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 1000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $1000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 2000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 2000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $2000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 3000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 3000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $3000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 4000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 4000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $4000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 5000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 5000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $5000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 6000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 6000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $6000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 7000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 7000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $7000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 8000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 8000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $8000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 9000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 9000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $9000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 10000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 10000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $10000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 11000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 11000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $11000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 12000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 12000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $12000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 13000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 13000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $13000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 14000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 14000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $14000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 15000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 15000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $15000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 16000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 16000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $16000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 17000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 17000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $17000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 18000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 18000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $18000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 19000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 19000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $19000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                }
+                if (PlayerStats.bounty.get(p.getUniqueId()) == 20000) {
+                    PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 20000);
+                    PlayerStats.bounty.put(p.getUniqueId(), 0);
+                    Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $20000 bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
+                    return;
+                } else {
+                    Bukkit.broadcastMessage(ChatColor.RED + "There's been a bounty error. Contact the owner!");
+                }
+            }
             BountifulAPI.sendActionBar(p.getPlayer(), ChatColor.RED + "" + ChatColor.BOLD + "You were killed by " + ChatColor.DARK_RED + "" + ChatColor.BOLD + k.getName() + ChatColor.RED + "" + ChatColor.BOLD + "!");
             BountifulAPI.sendActionBar(k.getPlayer(), ChatColor.GREEN + "" + ChatColor.BOLD + "You killed " + ChatColor.DARK_GREEN + "" + ChatColor.BOLD + p.getName() + ChatColor.GREEN + "" + ChatColor.BOLD + "!");
             p.sendMessage(strings.defaultMsgs + ChatColor.RED + "" + ChatColor.BOLD + "You were killed by " + ChatColor.DARK_RED + "" + ChatColor.BOLD + k.getName() + ChatColor.RED + "" + ChatColor.BOLD + "!");
             k.sendMessage(strings.defaultMsgs + ChatColor.GREEN + "" + ChatColor.BOLD + "You killed " + ChatColor.DARK_GREEN + "" + ChatColor.BOLD + p.getName() + ChatColor.GREEN + "" + ChatColor.BOLD + "!");
-            addKill(k, 1);
-            addDeath(p, 1);
-            try {
-                playerData.save(pFile);
-                killerData.save(kFile);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+
+//            addKill(k, 1);
+//            addDeath(p, 1);
+//            try {
+//                playerData.save(pFile);
+//                killerData.save(kFile);
+//            } catch (IOException ex) {
+//                ex.printStackTrace();
+//            }
 //            PlayerData Bounty = PlayerData.pBounty.get(p.getUniqueId());
 
 //            try {
@@ -127,24 +253,6 @@ public class PlayerDeath implements Listener {
         double i = playerData.getConfigurationSection("Stats").getDouble("Kills");
         double a = count;
         playerData.set("Stats.Kills", a + i);
-        try {
-            playerData.save(pFile);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            Bukkit.broadcastMessage(p.getName() + "'s file could not be saved! Error! Error!");
-        }
-
-    }
-
-
-    public void addDeath(Player p, double count) {
-        UUID playerUUID = p.getUniqueId();
-        File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
-        File pFile = new File(dataBase, File.separator + playerUUID + ".yml");
-        final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
-        double i = playerData.getConfigurationSection("Stats").getDouble("Deaths");
-        double a = count;
-        playerData.set("Stats.Deaths", a + i);
         try {
             playerData.save(pFile);
         } catch (IOException ex) {

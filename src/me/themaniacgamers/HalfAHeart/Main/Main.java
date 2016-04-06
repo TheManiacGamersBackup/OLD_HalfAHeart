@@ -6,7 +6,6 @@ import me.themaniacgamers.HalfAHeart.Main.listeners.*;
 import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
 import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
 import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
-import me.themaniacgamers.HalfAHeart.Main.utils.PlayerData;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -65,6 +64,7 @@ public class Main extends JavaPlugin implements Listener {
         pm.registerEvents(new PlayerLeave(this), this);
         pm.registerEvents(new PlayerMovement(this), this);
         pm.registerEvents(new PlayerAttacked(this), this);
+        pm.registerEvents(new PlayerStats(this), this);
 
         final org.bukkit.configuration.file.FileConfiguration config = this.getConfig();
         spawn = new Location(this.getServer().getWorld(config.getString("Spawn.World")),
@@ -169,13 +169,8 @@ public class Main extends JavaPlugin implements Listener {
 
     public void onDisable() {
         if (Bukkit.getOnlinePlayers().size() != 0) {
-            for (Player player : Bukkit.getOnlinePlayers()) {
-                PlayerData currentPlayer = PlayerData.loadedPlayer.get(player.getUniqueId());
-                //currentPlayer.saveData();
-                configs.saveOnPlayersToConfig();
-            }
-            PlayerData.loadedPlayer.clear();
-            configs.saveOnPlayersToConfig();
+            Player a = (Player) Bukkit.getOnlinePlayers();
+            a.kickPlayer(ChatColor.RED + "" + ChatColor.BOLD + "Server is being stopped! Call back shortly. If the server hasn't come back online for a bit, contact the owner!");
         }
     }
 }

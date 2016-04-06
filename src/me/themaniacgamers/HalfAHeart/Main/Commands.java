@@ -3,21 +3,18 @@ package me.themaniacgamers.HalfAHeart.Main;
 import com.sk89q.minecraft.util.commands.ChatColor;
 import com.sk89q.minecraft.util.commands.Command;
 import com.sk89q.minecraft.util.commands.CommandContext;
+import me.themaniacgamers.HalfAHeart.Main.listeners.PlayerStats;
 import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
+import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 
 /**
  * Created by Corey on 4/2/2016.
@@ -30,6 +27,8 @@ public class Commands {
     public Commands(Main plugin) {
         this.plugin = plugin;
     }
+
+    StringsManager strings = StringsManager.getInstance();
 
     private String hahPrefix = (ChatColor.AQUA + "-=[ " + ChatColor.BLUE + "" + ChatColor.BOLD + "Half A Heart" + ChatColor.AQUA + " ]=-");
     private String hahSuffix = (ChatColor.AQUA + "-=[ " + ChatColor.BLUE + "" + ChatColor.BOLD + "Half A Heart" + ChatColor.AQUA + " ]=-");
@@ -44,7 +43,7 @@ public class Commands {
                     sender.sendMessage(infoPrefix);
                     sender.sendMessage(ChatColor.BLUE + "" + ChatColor.BOLD + "Version: " + ChatColor.AQUA + " 0.2.001");
                     sender.sendMessage(ChatColor.BLUE + "" + ChatColor.BOLD + "Author: " + ChatColor.AQUA + " [TheManiacGamers]");
-                    sender.sendMessage(ChatColor.BLUE + "" + ChatColor.BOLD + "Testers: " + ChatColor.AQUA + " [Khry]");
+                    sender.sendMessage(ChatColor.BLUE + "" + ChatColor.BOLD + "Testers: " + ChatColor.AQUA + " [Rookie1200], [Khry]");
                     sender.sendMessage(hahSuffix);
                     return;
                 } else {
@@ -188,7 +187,7 @@ public class Commands {
             if (args.argsLength() == 1) {
                 configs.getCheckpoints().set("Checkpoints." + args.getString(0), null);
                 configs.saveCheckpoints();
-                p.sendMessage(ChatColor.GREEN + "You deleted the checkpoint:  " + args.getString(0) + "!");
+                p.sendMessage(ChatColor.GREEN + "You were deleted the " + ChatColor.BOLD + "" + args.getString(0) + ChatColor.GREEN + "!");
             } else {
                 sender.sendMessage(ChatColor.RED + "Incorrect Command! Do /del <name>");
             }
@@ -197,38 +196,74 @@ public class Commands {
         }
     }
 
-    @Command(aliases = "bounty", min = 2, max = 2, desc = "Set a bounty on the desired player!", usage = "<username>")
+    @Command(aliases = "bounty", min = 1, max = 1, desc = "Set a bounty of 1000 on the desired player!", usage = "<username>")
     public void onBounty(CommandContext args, CommandSender sender) {
         if (sender instanceof Player) {
             Player p = (Player) sender;
             if (args.argsLength() == 2) {
+                sender.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "Sorry, but bounty can only go up in 1000! Do /bounty <username>");
+            }
+            if (args.argsLength() == 1) {
                 Player t = Bukkit.getPlayer(args.getString(0));
                 if (!t.isOnline()) {
                     p.sendMessage(ChatColor.RED + "That player is not online!");
                 } else {
-                    addBounty(p, args.getString(1));
+                    if (PlayerStats.balance.get(p.getUniqueId()) >= 1000) {
+                        if (PlayerStats.bounty.get(t.getUniqueId()) <= 19000) {
+                            PlayerStats.bounty.put(t.getUniqueId(), PlayerStats.bounty.get(t.getUniqueId()) + 1000);
+                            PlayerStats.balance.put(p.getUniqueId(), PlayerStats.balance.get(p.getUniqueId()) - 1000);
+                            Bukkit.broadcastMessage(strings.defaultMsgs + t.getDisplayName() + " has now got a bounty of " + PlayerStats.bounty.get(t.getUniqueId()));
+                        } else {
+                            sender.sendMessage(ChatColor.RED + "That player already has the full bounty amount, go kill them!");
+                        }
+                    } else {
+                        sender.sendMessage(ChatColor.RED + "You need 1000 dollars to be able to put a bounty on a player!");
+                    }
                 }
             } else {
                 sender.sendMessage(ChatColor.GREEN + "You need to specify a player! Do /bounty <username>");
             }
+        } else {
+            sender.sendMessage(ChatColor.RED + "You must be a player to execute this command!");
         }
     }
 
-    public void addBounty(Player p, String count) {
-        UUID playerUUID = p.getUniqueId();
-        File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
-        File pFile = new File(dataBase, File.separator + playerUUID + ".yml");
-        String pName = (ChatColor.BLUE + "" + ChatColor.BOLD + p.getName() + ChatColor.AQUA);
-        final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
-        int i = playerData.getConfigurationSection("Stats").getInt("Bounty");
-        String a = count;
-        playerData.set("Stats.Bounty", a + i);
-        try {
-            playerData.save(pFile);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            Bukkit.broadcastMessage(p.getName() + "'s file could not be saved! Error! Error!");
+    @Command(aliases = "money", min = 1, max = 1, desc = "Gives a player a $1000!", usage = "<username>")
+    public void onMoneyGive(CommandContext args, CommandSender sender) {
+        if (sender instanceof Player) {
+            Player p = (Player) sender;
+            if (p.hasPermission("Hah.Money")) {
+                Player t = Bukkit.getPlayer(args.getString(0));
+                if (t.isOnline()) {
+                    PlayerStats.balance.put(t.getUniqueId(), (PlayerStats.balance.get(t.getUniqueId()) + 1000));
+                    t.sendMessage(p.getDisplayName() + ChatColor.GREEN + "" + ChatColor.BOLD + " has given you " + ChatColor.BLUE + "" + ChatColor.BOLD + " $1000" + ChatColor.GREEN + "" + ChatColor.BOLD + "!");
+                    p.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "You gave " + t.getDisplayName() + ChatColor.BLUE + "" + ChatColor.BOLD + " $1000" + ChatColor.GREEN + ChatColor.BOLD + "!");
+                } else {
+                    sender.sendMessage(ChatColor.RED + "That player is not online!");
+                }
+            } else {
+                sender.sendMessage(ChatColor.RED + "You do not have enough permissions to execute this command!");
+            }
+        } else {
+            sender.sendMessage(ChatColor.RED + "You need to be a player to use this command!");
         }
+    }
 
+    @Command(aliases = "stop", min = 0, max = 0, desc = "Kicks all online players then stops the server", usage = "")
+
+    public void onServerStop(CommandContext args, CommandSender sender) {
+        if (sender.hasPermission("Hah.Stop")) {
+            for (Player a : Bukkit.getServer().getOnlinePlayers()) {
+                a.kickPlayer(ChatColor.RED + "Server has been stopped. Check back soon!");
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+                    @Override
+                    public void run() {
+                        Bukkit.shutdown();
+                    }
+                }, 40L);
+            }
+        } else {
+            sender.sendMessage(ChatColor.RED + "You do not have permission to execute this command!");
+        }
     }
 }

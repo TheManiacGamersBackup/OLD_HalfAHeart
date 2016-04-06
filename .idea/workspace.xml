@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0da2d379-359d-4475-ad2e-9e2cac36fe30" name="Default" comment="" />
+    <list default="true" id="0da2d379-359d-4475-ad2e-9e2cac36fe30" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerJoin$1.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HalfAHeart.jar" afterPath="$PROJECT_DIR$/target/HalfAHeart.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/Commands.class" afterPath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/Commands.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/Main.class" afterPath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerChat.class" afterPath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerChat.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerDeath.class" afterPath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerDeath.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerInteract.class" afterPath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerInteract.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerJoin.class" afterPath="$PROJECT_DIR$/target/classes/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerJoin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/original-HalfAHeart.jar" afterPath="$PROJECT_DIR$/target/original-HalfAHeart.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Corey.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Corey.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Commands.java" afterPath="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Commands.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Main.java" afterPath="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerChat.java" afterPath="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerChat.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerDeath.java" afterPath="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerDeath.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerInteract.java" afterPath="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerInteract.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerJoin.java" afterPath="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerJoin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
+    </list>
     <ignored path="HalfAHeart.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,26 +42,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlayerJoin.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlayerJoin.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerJoin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="175" column="28" selection-start-line="175" selection-start-column="28" selection-end-line="175" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3080#6666#0" expanded="true" />
-                <element signature="e#6665#6666#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.30017152">
+              <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerDeath.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerDeath.java">
+      <file leaf-file-name="PlayerStats.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerStats.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
-              <folding />
+              <caret line="130" column="47" selection-start-line="130" selection-start-column="47" selection-end-line="130" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,76 +68,11 @@
         <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Commands.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="207" column="23" selection-start-line="207" selection-start-column="23" selection-end-line="207" selection-end-column="23" />
+              <caret line="212" column="108" selection-start-line="212" selection-start-column="108" selection-end-line="212" selection-end-column="108" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#14906#15075#0" expanded="true" />
+                <element signature="e#15074#15075#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/utils/PlayerData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="170" column="1" selection-start-line="170" selection-start-column="1" selection-end-line="170" selection-end-column="1" />
-              <folding>
-                <element signature="e#5684#5685#0" expanded="true" />
-                <element signature="e#5722#5723#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerFall.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerFall.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="49" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerInteract.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerInteract.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConfigsManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/managers/ConfigsManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
-              <folding>
-                <element signature="e#3964#3965#0" expanded="true" />
-                <element signature="e#3998#3999#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="118" column="20" selection-start-line="118" selection-start-column="20" selection-end-line="118" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerLeave.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerLeave.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67066896">
-              <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -134,6 +86,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -160,7 +115,6 @@
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerFood.java" />
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/items/Flashbang.java" />
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/utils/ExperienceManager.java" />
-        <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerChat.java" />
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/utils/ConfigsManager.java" />
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/utils/StringsManager.java" />
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerMovement.java" />
@@ -174,15 +128,17 @@
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/managers/HashMapsManager.java" />
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/managers/ScoreboardManager.java" />
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/managers/ConfigsManager.java" />
-        <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Main.java" />
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerFall.java" />
-        <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerInteract.java" />
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/utils/PlayerData.java" />
-        <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Commands.java" />
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/managers/StringsManager.java" />
+        <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerLeave.java" />
+        <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerInteract.java" />
+        <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerChat.java" />
+        <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Main.java" />
+        <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerStats.java" />
+        <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Commands.java" />
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerDeath.java" />
         <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerJoin.java" />
-        <option value="$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerLeave.java" />
       </list>
     </option>
   </component>
@@ -229,7 +185,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -334,8 +292,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -343,13 +299,13 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\creyn63\My Documents\Documents\GAMES\MINECRAFT\CODING\INTELLIJ\HalfAHeart\src\me\themaniacgamers\HalfAHeart\Main\utils" />
-      <recent name="F:\creyn63\My Documents\Documents\GAMES\MINECRAFT\CODING\INTELLIJ\HalfAHeart\src\me\themaniacgamers\HalfAHeart\Main" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\creyn63\My Documents\Documents\GAMES\MINECRAFT\CODING\INTELLIJ\HalfAHeart" />
       <recent name="F:\creyn63\My Documents\Documents\GAMES\MINECRAFT\CODING\INTELLIJ\HalfAHeart\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\creyn63\My Documents\Documents\GAMES\MINECRAFT\CODING\INTELLIJ\HalfAHeart\src\me\themaniacgamers\HalfAHeart\Main\utils" />
+      <recent name="F:\creyn63\My Documents\Documents\GAMES\MINECRAFT\CODING\INTELLIJ\HalfAHeart\src\me\themaniacgamers\HalfAHeart\Main" />
     </key>
   </component>
   <component name="RunManager">
@@ -654,7 +610,7 @@
     <layout>
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23600605" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25642964" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -691,7 +647,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -700,26 +656,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerLeave.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerJoin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3080#6666#0" expanded="true" />
-            <element signature="e#6665#6666#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/managers/StringsManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -733,8 +669,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="65" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
           <folding>
-            <element signature="e#5684#5685#0" expanded="true" />
-            <element signature="e#5722#5723#0" expanded="true" />
+            <element signature="e#5684#5685#0" expanded="false" />
+            <element signature="e#5722#5723#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -744,8 +680,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="e#3964#3965#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#785#786#0" expanded="false" />
+            <element signature="e#816#817#0" expanded="false" />
+            <element signature="e#2186#2187#0" expanded="false" />
+            <element signature="e#2220#2221#0" expanded="false" />
+            <element signature="e#2499#2500#0" expanded="false" />
+            <element signature="e#2572#2573#0" expanded="false" />
+            <element signature="e#2616#2617#0" expanded="false" />
+            <element signature="e#2645#2646#0" expanded="false" />
+            <element signature="e#3761#3762#0" expanded="false" />
+            <element signature="e#3828#3829#0" expanded="false" />
+            <element signature="e#3874#3875#0" expanded="false" />
+            <element signature="e#3915#3916#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -799,9 +746,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="71" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="79" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3080#6666#0" expanded="true" />
-            <element signature="e#6665#6666#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#940#941#0" expanded="false" />
+            <element signature="e#976#977#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -826,8 +773,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
           <folding>
-            <element signature="e#5684#5685#0" expanded="true" />
-            <element signature="e#5722#5723#0" expanded="true" />
+            <element signature="e#5684#5685#0" expanded="false" />
+            <element signature="e#5722#5723#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -961,18 +908,11 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#346#364#0" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#346#364#0" expanded="false" />
+            <element signature="e#479#480#0" expanded="false" />
+            <element signature="e#510#511#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerChat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3906542">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -983,25 +923,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerAttacked.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.9.2-R0.1-SNAPSHOT/spigot-api-1.9.2-R0.1-20160402.001659-14.jar!/org/bukkit/scoreboard/ScoreboardManager.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.6666665">
           <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="118" column="20" selection-start-line="118" selection-start-column="20" selection-end-line="118" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1010,16 +935,20 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
           <folding>
-            <element signature="e#3964#3965#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#785#786#0" expanded="false" />
+            <element signature="e#816#817#0" expanded="false" />
+            <element signature="e#2186#2187#0" expanded="false" />
+            <element signature="e#2220#2221#0" expanded="false" />
+            <element signature="e#2499#2500#0" expanded="false" />
+            <element signature="e#2572#2573#0" expanded="false" />
+            <element signature="e#2616#2617#0" expanded="false" />
+            <element signature="e#2645#2646#0" expanded="false" />
+            <element signature="e#3761#3762#0" expanded="false" />
+            <element signature="e#3828#3829#0" expanded="false" />
+            <element signature="e#3874#3875#0" expanded="false" />
+            <element signature="e#3915#3916#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/sk89q/command-framework-bukkit/0.6-SNAPSHOT/command-framework-bukkit-0.6-20160218.083654-29.jar!/com/sk89q/minecraft/util/commands/CommandContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2841727">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1049,6 +978,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="49" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#619#620#0" expanded="false" />
+            <element signature="e#655#656#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerLeave.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/utils/PlayerData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.186964">
+          <caret line="170" column="1" selection-start-line="170" selection-start-column="1" selection-end-line="170" selection-end-column="1" />
+          <folding>
+            <element signature="e#5684#5685#0" expanded="false" />
+            <element signature="e#5722#5723#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerAttacked.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerChat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/managers/StringsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24185249">
+          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -1056,7 +1032,22 @@
     <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerInteract.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <caret line="63" column="56" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/sk89q/command-framework-bukkit/0.6-SNAPSHOT/command-framework-bukkit-0.6-20160218.083654-29.jar!/com/sk89q/minecraft/util/commands/CommandContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3503937">
+          <caret line="186" column="18" selection-start-line="186" selection-start-column="18" selection-end-line="186" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.740995">
+          <caret line="117" column="55" selection-start-line="117" selection-start-column="55" selection-end-line="117" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -1064,56 +1055,44 @@
     <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/Commands.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="207" column="23" selection-start-line="207" selection-start-column="23" selection-end-line="207" selection-end-column="23" />
+          <caret line="212" column="108" selection-start-line="212" selection-start-column="108" selection-end-line="212" selection-end-column="108" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#14906#15075#0" expanded="true" />
+            <element signature="e#15074#15075#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/utils/PlayerData.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DRa0.569/me/dablakbandit/stoppushing/StopPushingPlugin.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="170" column="1" selection-start-line="170" selection-start-column="1" selection-end-line="170" selection-end-column="1" />
-          <folding>
-            <element signature="e#5684#5685#0" expanded="true" />
-            <element signature="e#5722#5723#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/managers/StringsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5626072">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        <state vertical-scroll-proportion="-3.3464568">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerJoin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="175" column="28" selection-start-line="175" selection-start-column="28" selection-end-line="175" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3080#6666#0" expanded="true" />
-            <element signature="e#6665#6666#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerDeath.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.087478556">
+          <caret line="33" column="58" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerLeave.java">
+    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerStats.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67066896">
-          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="130" column="47" selection-start-line="130" selection-start-column="47" selection-end-line="130" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/themaniacgamers/HalfAHeart/Main/listeners/PlayerJoin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30017152">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
           <folding />
         </state>
       </provider>

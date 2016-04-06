@@ -5,6 +5,7 @@ import me.themaniacgamers.HalfAHeart.Main.Main;
 import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
 import me.themaniacgamers.HalfAHeart.Main.utils.ParticleEffect;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Egg;
 import org.bukkit.entity.EnderPearl;
 import org.bukkit.entity.Entity;
@@ -15,6 +16,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
 /**
@@ -54,6 +56,13 @@ public class PlayerInteract implements Listener {
     @EventHandler(priority = EventPriority.NORMAL)
     public void enderpearlDisable(ProjectileLaunchEvent e) {
         if (e.getEntity() instanceof EnderPearl) {
+            e.setCancelled(true);
+        }
+    }
+
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void eyeofenderDisable(PlayerInteractEvent e) {
+        if (e.getPlayer().getInventory().getItemInMainHand().equals(Material.EYE_OF_ENDER)) {
             e.setCancelled(true);
         }
     }

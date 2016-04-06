@@ -15,14 +15,14 @@ public class ExperienceManager {
 
     private static int xpTotalToReachLevel[];
 
-    private final WeakReference<Player> player;
-    private final String playerName;
-
     static {
         // 25 is an arbitrary value for the initial table size - the actual
         // value isn't critically important since the table is resized as needed.
         initLookupTables(25);
     }
+
+    private final WeakReference<Player> player;
+    private final String playerName;
 
     /**
      * Create a new ExperienceManager for the given player.
@@ -158,7 +158,7 @@ public class ExperienceManager {
         }
         // Increment total experience - this should force the server to send an update packet
         if (xp > base) {
-            player.setTotalExperience(player.getTotalExperience() + xp - (int)base);
+            player.setTotalExperience(player.getTotalExperience() + xp - (int) base);
         }
 
         double pct = (base - getXpForLevel(newLvl) + amt) / (double) (getXpNeededToLevelUp(newLvl));

@@ -6,12 +6,7 @@ import com.sk89q.minecraft.util.commands.ChatColor;
  * Created by Corey on 4/3/2016.
  */
 public class StringsManager {
-    public static StringsManager getInstance() {
-        return instance;
-    }
-
     static StringsManager instance = new StringsManager();
-
     //STRINGS LIST
     public String developer = "TheManiacGamers";
     public String testers = "ILavaYou" + " TheManiacGamers" + " Rookie1200";
@@ -31,4 +26,8 @@ public class StringsManager {
     public String firstJoinp2 = (ChatColor.AQUA + "" + ChatColor.BOLD + " to" + ChatColor.GOLD + "" + ChatColor.BOLD + " RiftMC.us " + hahPvP + aquaExclamation);
     public String defaultMsgs = (ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Server" + ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "] " + ChatColor.GREEN);
     public String scoreboardTitle = (ChatColor.GOLD + "" + ChatColor.BOLD + "[" + ChatColor.DARK_RED + "" + ChatColor.BOLD + "Half" + ChatColor.RED + "" + ChatColor.BOLD + "A" + ChatColor.DARK_RED + "" + ChatColor.BOLD + "Heart" + ChatColor.GOLD + "" + ChatColor.BOLD + "]");
+
+    public static StringsManager getInstance() {
+        return instance;
+    }
 }

@@ -4,19 +4,18 @@ import com.sk89q.minecraft.util.commands.ChatColor;
 import me.themaniacgamers.HalfAHeart.Main.Main;
 import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
 import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
-import me.themaniacgamers.HalfAHeart.Main.utils.PlayerData;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -24,20 +23,17 @@ import java.util.UUID;
  * Created by Corey on 4/2/2016.
  */
 public class PlayerJoin implements Listener {
+    public HashMap<Player, String> stats = new HashMap<Player, String>();
     Main plugin;
-
+    ConfigsManager configs = ConfigsManager.getInstance();
+    StringsManager strings = StringsManager.getInstance();
+    double kills;
+    double deaths;
     public PlayerJoin(Main plugin) {
         this.plugin = plugin;
     }
 
-    public HashMap<Player, String> stats = new HashMap<Player, String>();
-    ConfigsManager configs = ConfigsManager.getInstance();
-    StringsManager strings = StringsManager.getInstance();
-
-    double kills;
-    double deaths;
-
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerJoin(final PlayerJoinEvent e) {
         final Player p = e.getPlayer();
         if (p.hasPermission("Hah.Donator") || p.isOp()) {

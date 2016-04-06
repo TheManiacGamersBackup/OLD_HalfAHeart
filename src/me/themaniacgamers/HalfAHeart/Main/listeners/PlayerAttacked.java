@@ -18,13 +18,11 @@ import org.bukkit.util.Vector;
 public class PlayerAttacked implements Listener {
 
     Main plugin;
+    StringsManager strings = StringsManager.getInstance();
 
     public PlayerAttacked(Main plugin) {
         this.plugin = plugin;
     }
-
-    StringsManager strings = StringsManager.getInstance();
-
 
     @EventHandler
     public void onAttacked(EntityDamageByEntityEvent e) {

@@ -15,8 +15,6 @@ import java.util.UUID;
  */
 public class PlayerData {
 
-    Main plugin;
-
     public static HashMap<UUID, PlayerData> loadedPlayer = new HashMap<UUID, PlayerData>();
     public static HashMap<UUID, PlayerData> pKills = new HashMap<UUID, PlayerData>();
     public static HashMap<UUID, PlayerData> pDeaths = new HashMap<UUID, PlayerData>();
@@ -27,7 +25,8 @@ public class PlayerData {
     public static HashMap<UUID, PlayerData> pKDR = new HashMap<UUID, PlayerData>();
     public static HashMap<UUID, PlayerData> pHighestKS = new HashMap<UUID, PlayerData>();
     public static HashMap<UUID, PlayerData> pCheckpoints = new HashMap<UUID, PlayerData>();
-
+    public ConfigsManager configs = ConfigsManager.getInstance();
+    Main plugin;
     private int bounty;
     private int kills;
     private int deaths;
@@ -36,10 +35,8 @@ public class PlayerData {
     private int Lvl;
     private int KDR;
     private int highestKS;
-    private int checkpoints;
     //blah
-
-    public ConfigsManager configs = ConfigsManager.getInstance();
+    private int checkpoints;
 
     public PlayerData(UUID id) {
         //read all stats from file

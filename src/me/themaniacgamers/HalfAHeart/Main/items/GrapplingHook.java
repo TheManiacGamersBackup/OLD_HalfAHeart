@@ -1,6 +1,5 @@
 package me.themaniacgamers.HalfAHeart.Main.items;
 
-import org.bukkit.entity.Item;
 import org.bukkit.event.Listener;
 
 /**

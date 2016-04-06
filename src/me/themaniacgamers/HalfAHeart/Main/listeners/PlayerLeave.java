@@ -2,7 +2,6 @@ package me.themaniacgamers.HalfAHeart.Main.listeners;
 
 import com.sk89q.minecraft.util.commands.ChatColor;
 import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.utils.PlayerData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -28,5 +27,5 @@ public class PlayerLeave implements Listener {
         }
 //        PlayerData currentPlayer = PlayerData.loadedPlayer.get(p.getUniqueId());
 //        currentPlayer.saveData();
-}
+    }
 }

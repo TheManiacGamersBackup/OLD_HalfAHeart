@@ -5,6 +5,7 @@ import com.sk89q.minecraft.util.commands.*;
 import me.themaniacgamers.HalfAHeart.Main.listeners.*;
 import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
 import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
+import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
 import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -19,22 +20,37 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.UUID;
 
 /**
  * Created by TheManiacGamers on 4/2/2016.
  */
 public class Main extends JavaPlugin implements Listener {
-    protected ArrayList<Class> cmdClasses;
-    public Main plugin;
-    private CommandsManager<CommandSender> commands;
     public static Main instance;
+    public Main plugin;
+    public Location spawn = null;
+    protected ArrayList<Class> cmdClasses;
+    public static HashMap<UUID, PlayerStats> playerStats;
     ConfigsManager configs = ConfigsManager.getInstance();
     StringsManager strings = StringsManager.getInstance();
-    public Location spawn = null;
+    private CommandsManager<CommandSender> commands;
 
     public static Main getInstance() {
         return instance;
     }
+
+    public static void log(String message) {
+        System.out.println("[HalfAHeart] " + message);
+    }
+
+//    public void onReload() {
+//        if (Bukkit.getOnlinePlayers().size() != 0) {
+//            for(Player player : Bukkit.getOnlinePlayers()) {
+//                PlayerData.loadedPlayer.put(player.getUniqueId(), new PlayerData(player.getUniqueId()));
+//            }
+//        }
+//    }
 
     public void onEnable() {
         plugin = this;
@@ -51,13 +67,15 @@ public class Main extends JavaPlugin implements Listener {
         pm.registerEvents(new PlayerLeave(this), this);
         pm.registerEvents(new PlayerMovement(this), this);
         pm.registerEvents(new PlayerAttacked(this), this);
-        pm.registerEvents(new PlayerStats(this), this);
+        pm.registerEvents(new PlayerStatsListener(this), this);
         File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
         if (!(dataBase.exists())) {
             try {
-                dataBase.createNewFile();
+                if (dataBase.createNewFile()) ; //...?
             } catch (IOException ex) {
                 ex.printStackTrace();
+
+                //lol a yaml file isn't a database
                 log("COULD NOT CREATE THE DATABASE FILE! CREATE IT MANUALLY. plugins/HalfAHeart/PlayerDatabase/");
                 Bukkit.shutdown();
             }
@@ -66,13 +84,14 @@ public class Main extends JavaPlugin implements Listener {
         spawn = new Location(this.getServer().getWorld(config.getString("Spawn.World")),
                 config.getDouble("Spawn.X"), config.getDouble("Spawn.Y"), config.getDouble("Spawn.Z"),
                 (float) config.getDouble("Spawn.Y"), (float) config.getDouble("Spawn.Pitch"));
-        log("Was enabled successfully!");
-        //optional if statement
-        //if(Bukkit.getOnlinePlayers().size() != 0) {
-        //    for(Player player :Bukkit.getOnlinePlayers()) {
-        //        PlayerData.loadedPlayer.put(player.getUniqueId(), new PlayerData(player.getUniqueId()));
-        //    }
-        //}
+        log("Enabled successfully!");
+        /*optional if statement
+        if(Bukkit.getOnlinePlayers().size() != 0) {
+            for(Player player :Bukkit.getOnlinePlayers()) {
+                PlayerData.loadedPlayer.put(player.getUniqueId(), new PlayerData(player.getUniqueId()));
+            }
+        }*/
+        playerStats = new HashMap<>();
         Bukkit.getScheduler().runTaskTimerAsynchronously(this, new Runnable() {
             public void run() {
                 for (Player a : Bukkit.getOnlinePlayers()) {
@@ -82,20 +101,13 @@ public class Main extends JavaPlugin implements Listener {
         }, 60L, 60L);
     }
 
-//    public void onReload() {
-//        if (Bukkit.getOnlinePlayers().size() != 0) {
-//            for(Player player : Bukkit.getOnlinePlayers()) {
-//                PlayerData.loadedPlayer.put(player.getUniqueId(), new PlayerData(player.getUniqueId()));
-//            }
-//        }
-//    }
+    public void onDisable() {
+        if (Bukkit.getOnlinePlayers().size() != 0) {
+            Player a = (Player) Bukkit.getOnlinePlayers();
+            a.kickPlayer(ChatColor.RED + "" + ChatColor.BOLD + "Server is being stopped! Call back shortly. If the server hasn't come back online for a bit, contact the owner!");
+        }
+    }
 
-    // FROM HERE ONWARDS IT'S ALL THE SK89Q COMMAND REGISTRATION//ETC//
-// FROM HERE ONWARDS IT'S ALL THE SK89Q COMMAND REGISTRATION//ETC//
-// FROM HERE ONWARDS IT'S ALL THE SK89Q COMMAND REGISTRATION//ETC//
-// FROM HERE ONWARDS IT'S ALL THE SK89Q COMMAND REGISTRATION//ETC//
-// FROM HERE ONWARDS IT'S ALL THE SK89Q COMMAND REGISTRATION//ETC//
-// FROM HERE ONWARDS IT'S ALL THE SK89Q COMMAND REGISTRATION//ETC//
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         try {
@@ -154,19 +166,7 @@ public class Main extends JavaPlugin implements Listener {
             cmdRegister.register(cmdClass);
     }
 
-    public static void log(String message) {
-        System.out.println("[HalfAHeart] " + message);
-
-    }
-
     public boolean hasPerm(CommandSender sender, String perm) {
         return sender instanceof ConsoleCommandSender || sender.hasPermission(perm);
-    }
-
-    public void onDisable() {
-        if (Bukkit.getOnlinePlayers().size() != 0) {
-            Player a = (Player) Bukkit.getOnlinePlayers();
-            a.kickPlayer(ChatColor.RED + "" + ChatColor.BOLD + "Server is being stopped! Call back shortly. If the server hasn't come back online for a bit, contact the owner!");
-        }
     }
 }

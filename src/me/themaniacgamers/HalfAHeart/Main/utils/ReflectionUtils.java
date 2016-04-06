@@ -338,6 +338,15 @@ public final class ReflectionUtils {
         }
 
         /**
+         * Returns the version of your server
+         *
+         * @return The server version
+         */
+        public static String getServerVersion() {
+            return Bukkit.getServer().getClass().getPackage().getName().substring(23);
+        }
+
+        /**
          * Returns the path of this package type
          *
          * @return The path
@@ -362,15 +371,6 @@ public final class ReflectionUtils {
         public String toString() {
             return path;
         }
-
-        /**
-         * Returns the version of your server
-         *
-         * @return The server version
-         */
-        public static String getServerVersion() {
-            return Bukkit.getServer().getClass().getPackage().getName().substring(23);
-        }
     }
 
     /**
@@ -392,8 +392,6 @@ public final class ReflectionUtils {
         BOOLEAN(boolean.class, Boolean.class);
 
         private static final Map<Class<?>, DataType> CLASS_MAP = new HashMap<Class<?>, DataType>();
-        private final Class<?> primitive;
-        private final Class<?> reference;
 
         // Initialize map for quick class lookup
         static {
@@ -402,6 +400,9 @@ public final class ReflectionUtils {
                 CLASS_MAP.put(type.reference, type);
             }
         }
+
+        private final Class<?> primitive;
+        private final Class<?> reference;
 
         /**
          * Construct a new data type
@@ -412,24 +413,6 @@ public final class ReflectionUtils {
         private DataType(Class<?> primitive, Class<?> reference) {
             this.primitive = primitive;
             this.reference = reference;
-        }
-
-        /**
-         * Returns the primitive class of this data type
-         *
-         * @return The primitive class
-         */
-        public Class<?> getPrimitive() {
-            return primitive;
-        }
-
-        /**
-         * Returns the reference class of this data type
-         *
-         * @return The reference class
-         */
-        public Class<?> getReference() {
-            return reference;
         }
 
         /**
@@ -532,6 +515,24 @@ public final class ReflectionUtils {
                 return false;
             }
             return true;
+        }
+
+        /**
+         * Returns the primitive class of this data type
+         *
+         * @return The primitive class
+         */
+        public Class<?> getPrimitive() {
+            return primitive;
+        }
+
+        /**
+         * Returns the reference class of this data type
+         *
+         * @return The reference class
+         */
+        public Class<?> getReference() {
+            return reference;
         }
     }
 }

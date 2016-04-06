@@ -19,27 +19,22 @@ import java.util.UUID;
  */
 public class ConfigsManager {
 
+    static ConfigsManager instance = new ConfigsManager();
     Main plugin;
+    Plugin p;
+    FileConfiguration config;
+    File cFile;
+    FileConfiguration checkpoints;
+    File cpFile;
+    FileConfiguration playersFile;
+    File pFile;
 
     private ConfigsManager() {
     }
 
-    static ConfigsManager instance = new ConfigsManager();
-
     public static ConfigsManager getInstance() {
         return instance;
     }
-
-    Plugin p;
-
-    FileConfiguration config;
-    File cFile;
-
-    FileConfiguration checkpoints;
-    File cpFile;
-
-    FileConfiguration playersFile;
-    File pFile;
 
 //inside Settings class {
 //public Location getSpawn() {

@@ -76,12 +76,6 @@ public class PlayerDeath implements Listener {
                 p.sendMessage(strings.defaultMsgs + "You've committed suicide!");
                 return;
             }
-            if (p.getLevel() == 0) {
-                return;
-            } else {
-                p.setLevel(p.getLevel() - 25);
-                k.setLevel(k.getLevel() + 50);
-            }
             if (PlayerStats.bounty.containsKey(p.getUniqueId())) {
                 if (PlayerStats.bounty.get(playerUUID) == 1000) {
                     PlayerStats.balance.put(k.getUniqueId(), PlayerStats.balance.get(k.getUniqueId()) + 1000);
@@ -206,11 +200,10 @@ public class PlayerDeath implements Listener {
                     Bukkit.broadcastMessage(ChatColor.RED + "There's been a bounty error. Contact the owner!");
                 }
             }
-            BountifulAPI.sendActionBar(p.getPlayer(), ChatColor.RED + "" + ChatColor.BOLD + "You were killed by " + ChatColor.DARK_RED + "" + ChatColor.BOLD + k.getName() + ChatColor.RED + "" + ChatColor.BOLD + "!");
-            BountifulAPI.sendActionBar(k.getPlayer(), ChatColor.GREEN + "" + ChatColor.BOLD + "You killed " + ChatColor.DARK_GREEN + "" + ChatColor.BOLD + p.getName() + ChatColor.GREEN + "" + ChatColor.BOLD + "!");
-            p.sendMessage(strings.defaultMsgs + ChatColor.RED + "" + ChatColor.BOLD + "You were killed by " + ChatColor.DARK_RED + "" + ChatColor.BOLD + k.getName() + ChatColor.RED + "" + ChatColor.BOLD + "!");
-            k.sendMessage(strings.defaultMsgs + ChatColor.GREEN + "" + ChatColor.BOLD + "You killed " + ChatColor.DARK_GREEN + "" + ChatColor.BOLD + p.getName() + ChatColor.GREEN + "" + ChatColor.BOLD + "!");
-
+            BountifulAPI.sendTitle(p.getPlayer(), 20, 20, 20, ChatColor.DARK_RED + "" + ChatColor.BOLD + "" + ChatColor.STRIKETHROUGH + "II" + ChatColor.DARK_RED + "" + ChatColor.BOLD + "K.O" + ChatColor.DARK_RED + "" + ChatColor.BOLD + "" + ChatColor.STRIKETHROUGH + "II", " ");
+            k.sendMessage(strings.defaultMsgs + ChatColor.GREEN + "You killed " + p.getDisplayName() + ChatColor.GREEN + "!");
+            k.sendMessage(strings.defaultMsgs + ChatColor.GREEN + "You gained $5 and 5 strength, as well as 5 levels!");
+            p.sendMessage(strings.defaultMsgs + ChatColor.RED + "You were killed by " + k.getDisplayName());
 //            addKill(k, 1);
 //            addDeath(p, 1);
 //            try {

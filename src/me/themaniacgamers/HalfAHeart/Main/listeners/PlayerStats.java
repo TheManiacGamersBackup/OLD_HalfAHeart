@@ -13,6 +13,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scoreboard.*;
 
 import java.io.File;
@@ -140,91 +141,101 @@ public class PlayerStats implements Listener {
         Player killer = e.getEntity().getPlayer().getKiller();
         Player player = e.getEntity();
         if (e.getEntity().getKiller().getType() == EntityType.PLAYER) {
+            // ADDING / REMOVING STATS FROM PLAYER / KILLER!
             kills.put(killer.getUniqueId(), kills.get(killer.getUniqueId()) + 1);
             deaths.put(player.getUniqueId(), deaths.get(player.getUniqueId()) + 1);
             killstreak.put(killer.getUniqueId(), killstreak.get(killer.getUniqueId()) + 1);
             killstreak.put(player.getUniqueId(), 0);
+            balance.put(killer.getUniqueId(), balance.get(killer.getUniqueId()) + 5);
+            xptonxtlevel.put(killer.getUniqueId(), xptonxtlevel.get(killer.getUniqueId()) + 5);
+            killer.setLevel(killer.getLevel() + 5);
+
+            if (highestks.get(killer.getUniqueId()) <= killstreak.get(killer.getUniqueId())) {
+                highestks.put(killer.getUniqueId(), highestks.get(killer.getUniqueId()) + 1);
+            }
+
             Player p = (Player) e.getEntity();
             Player k = (Player) e.getEntity().getKiller();
             if (killstreak.get(k.getUniqueId()) == 7) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
+                p.addPotionEffect(PotionEffectType.REGENERATION.createEffect(100, 3));
             }
             if (killstreak.get(k.getUniqueId()) == 14) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 21) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 28) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 35) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 42) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 49) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 56) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 63) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 70) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 77) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 84) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 91) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 98) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 105) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 112) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 119) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 126) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 133) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 140) {
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is dominating!");
-                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " is on a rampage!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is dominating!");
+                Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + " is on a rampage!");
             }
             if (killstreak.get(k.getUniqueId()) == 10) {
                 Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.DARK_RED + "" + ChatColor.BOLD + " has reached a killstreak of 10!");

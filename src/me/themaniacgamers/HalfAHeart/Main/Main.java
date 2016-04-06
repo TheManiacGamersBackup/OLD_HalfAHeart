@@ -15,12 +15,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scoreboard.Objective;
-import org.bukkit.scoreboard.Score;
-import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.Team;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -33,17 +30,7 @@ public class Main extends JavaPlugin implements Listener {
     public static Main instance;
     ConfigsManager configs = ConfigsManager.getInstance();
     StringsManager strings = StringsManager.getInstance();
-    public File dataBase;
-    public File sneakCountLoc;
-    public File confConfLoc;
     public Location spawn = null;
-    Scoreboard board;
-    Objective objective;
-    Team team;
-    volatile Score kills;
-    volatile Score deaths;
-    volatile Score highestKS;
-    volatile Score online;
 
     public static Main getInstance() {
         return instance;
@@ -65,7 +52,16 @@ public class Main extends JavaPlugin implements Listener {
         pm.registerEvents(new PlayerMovement(this), this);
         pm.registerEvents(new PlayerAttacked(this), this);
         pm.registerEvents(new PlayerStats(this), this);
-
+        File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
+        if (!(dataBase.exists())) {
+            try {
+                dataBase.createNewFile();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                log("COULD NOT CREATE THE DATABASE FILE! CREATE IT MANUALLY. plugins/HalfAHeart/PlayerDatabase/");
+                Bukkit.shutdown();
+            }
+        }
         final org.bukkit.configuration.file.FileConfiguration config = this.getConfig();
         spawn = new Location(this.getServer().getWorld(config.getString("Spawn.World")),
                 config.getDouble("Spawn.X"), config.getDouble("Spawn.Y"), config.getDouble("Spawn.Z"),

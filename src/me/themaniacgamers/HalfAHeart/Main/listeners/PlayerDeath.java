@@ -53,10 +53,10 @@ public class PlayerDeath implements Listener {
         File kFile = new File(dataBase, File.separator + killerUUID + ".yml");
         final FileConfiguration killerData = YamlConfiguration.loadConfiguration(kFile);
         if (k.hasPermission("Hah.Donator")) {
-            if (k.getMaxHealth() != 2) {
+            if (k.getMaxHealth() != 4D) {
                 BountifulAPI.sendTitle(k.getPlayer(), 20, 20, 20, ChatColor.DARK_RED + "" + ChatColor.BOLD + "" + ChatColor.MAGIC + "III" + ChatColor.DARK_RED + "" + ChatColor.BOLD + "Blood Thirst" + ChatColor.DARK_RED + "" + ChatColor.BOLD + "" + ChatColor.MAGIC + "III", ChatColor.GREEN + "+ 1 heart!");
-                k.setMaxHealth(2D);
-                k.setHealth(2D);
+                k.setMaxHealth(4D);
+                k.setHealth(4D);
                 k.addPotionEffect(PotionEffectType.REGENERATION.createEffect(20, 2));
             }
         }

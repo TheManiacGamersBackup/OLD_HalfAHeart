@@ -13,6 +13,8 @@ public class StringsManager {
     static StringsManager instance = new StringsManager();
 
     //STRINGS LIST
+    public String developer = "TheManiacGamers";
+    public String testers = "ILavaYou" + " TheManiacGamers" + " Rookie1200";
     public String hah = (ChatColor.BLUE + "" + ChatColor.BOLD + "Half A Heart" + ChatColor.AQUA);
     public String hahTab = (ChatColor.AQUA + "" + ChatColor.BOLD + "Half A Heart" + ChatColor.AQUA);
     public String join = (ChatColor.DARK_GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.DARK_GRAY + "]" + ChatColor.GRAY);

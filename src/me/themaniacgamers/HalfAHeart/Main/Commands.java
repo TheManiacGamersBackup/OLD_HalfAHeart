@@ -3,6 +3,7 @@ package me.themaniacgamers.HalfAHeart.Main;
 import com.sk89q.minecraft.util.commands.ChatColor;
 import com.sk89q.minecraft.util.commands.Command;
 import com.sk89q.minecraft.util.commands.CommandContext;
+import com.sk89q.minecraft.util.commands.CommandNumberFormatException;
 import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
 import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
 import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
@@ -31,11 +32,7 @@ public class Commands {
         this.plugin = plugin;
     }
 
-    @Command(aliases = "halfaheart",
-            min = 0,
-            max = 1,
-            desc = "Base command for half a heart!",
-            usage = "")
+    @Command(aliases = "halfaheart", max = 1, desc = "Base command for half a heart!")
     public void onHah(CommandContext args, CommandSender sender) {
         if (sender instanceof Player) {
             Player p = (Player) sender;
@@ -80,11 +77,7 @@ public class Commands {
 
     }
 
-    @Command(aliases = "setspawn",
-            min = 0,
-            max = 0,
-            desc = "Set the spawn location for the server!",
-            usage = "")
+    @Command(aliases = "setspawn", max = 0, desc = "Set the spawn location for the server!")
     public void onSetSpawn(CommandContext args, CommandSender sender) {
         if (sender instanceof Player) {
             if (sender.hasPermission("Hah.Setspawn")) {
@@ -102,11 +95,7 @@ public class Commands {
         }
     }
 
-    @Command(aliases = "spawn",
-            min = 0,
-            max = 0,
-            desc = "Set the spawn location for the server!",
-            usage = "")
+    @Command(aliases = "spawn", max = 0, desc = "Set the spawn location for the server!")
     public void onSpawn(CommandContext args, CommandSender sender) {
         if (sender instanceof Player) {
             if (sender.hasPermission("Hah.Spawn") || sender.hasPermission("Hah.*") || sender.hasPermission("Hah.Donator")) {
@@ -130,11 +119,7 @@ public class Commands {
         }
     }
 
-    @Command(aliases = "set",
-            min = 1,
-            max = 1,
-            desc = "Set the checkpoints for the server!",
-            usage = "<name>")
+    @Command(aliases = "set", min = 1, max = 1, desc = "Set the checkpoints for the server!", usage = "<name>")
     public void onSetCheckpoints(CommandContext args, CommandSender sender) {
         if (sender instanceof Player) {
             if (sender.hasPermission("Hah.Set")) {
@@ -162,11 +147,7 @@ public class Commands {
         }
     }
 
-    @Command(aliases = "checkpoint",
-            min = 1,
-            max = 1,
-            desc = "Teleports you to the specified checkpoint!",
-            usage = "<name>")
+    @Command(aliases = "checkpoint", min = 1, max = 1, desc = "Teleports you to the specified checkpoint!", usage = "<name>")
     public void onCheckpointTP(CommandContext args, CommandSender sender) {
         if (sender instanceof Player) {
             Player p = (Player) sender;
@@ -197,11 +178,7 @@ public class Commands {
         }
     }
 
-    @Command(aliases = "del",
-            min = 0,
-            max = 2,
-            desc = "Set the checkpoints for the server!",
-            usage = "<name>")
+    @Command(aliases = "del", max = 2, desc = "Set the checkpoints for the server!", usage = "<name>")
     public void onDelCheckpoints(CommandContext args, CommandSender sender) {
         if (sender instanceof Player) {
             Player p = (Player) sender;
@@ -217,34 +194,31 @@ public class Commands {
         }
     }
 
-    @Command(aliases = "bounty",
-            min = 1,
-            max = 1,
-            desc = "Set a bounty of 1000 on the desired player!",
-            usage = "<username>")
-    public void onBounty(CommandContext args, CommandSender sender) {
+    @Command(aliases = "bounty", min = 1, max = 2, desc = "Set a bounty of 1000 on the desired player!", usage = "<username> <amount>")
+    public void onBounty(CommandContext args, CommandSender sender) throws CommandNumberFormatException {
         if (sender instanceof Player) {
             Player p = (Player) sender;
-            if (args.argsLength() == 2) {
-                sender.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "Sorry, but bounty can only go up in 1000! Do /bounty <username>");
-            }
             if (args.argsLength() == 1) {
+                sender.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "Sorry, but bounty can only go up in 1000! Do /bounty <username>");
+                return;
+            }
+            if (args.argsLength() == 2) {
                 Player t = Bukkit.getPlayer(args.getString(0));
                 if (!t.isOnline()) {
                     p.sendMessage(ChatColor.RED + "That player is not online!");
                 } else {
                     PlayerStats senderStats = Main.playerStats.get(p.getUniqueId());
                     PlayerStats targetStats = Main.playerStats.get(t.getUniqueId());
-                    if (senderStats.balance >= 1000) {
-                        if (targetStats.balance <= 19000) {
-                            targetStats.bounty += 1000;
-                            senderStats.balance -= 1000;
-                            Bukkit.broadcastMessage(strings.defaultMsgs + t.getDisplayName() + " has now got a bounty of " + targetStats.bounty);
+                    if (senderStats.balance >= 1) {
+                        if (args.getInteger(1) <= senderStats.balance) {
+                            targetStats.bounty += args.getInteger(1);
+                            senderStats.balance -= args.getInteger(1);
+                            Bukkit.broadcastMessage(strings.defaultMsgs + t.getDisplayName() + ChatColor.YELLOW + "" + ChatColor.BOLD + " has now got a bounty of " + ChatColor.GOLD + "" + ChatColor.BOLD + targetStats.bounty);
                         } else {
-                            sender.sendMessage(ChatColor.RED + "That player already has the full bounty amount, go kill them!");
+                            sender.sendMessage(strings.defaultMsgs + ChatColor.RED + "You do not have " + args.getInteger(1) + " to bounty this player. Try a different amount!");
                         }
                     } else {
-                        sender.sendMessage(ChatColor.RED + "You need 1000 dollars to be able to put a bounty on a player!");
+                        sender.sendMessage(strings.defaultMsgs + ChatColor.RED + "You need 1 dollar to be able to put a bounty on a player!");
                     }
                 }
             } else {
@@ -255,36 +229,32 @@ public class Commands {
         }
     }
 
-    @Command(aliases = "money",
-            min = 1,
-            max = 1,
-            desc = "Gives a player a $1000!",
-            usage = "<username>")
-    public void onMoneyGive(CommandContext args, CommandSender sender) {
+    @Command(aliases = "money", min = 1, max = 2, desc = "Gives a player an amount of money!", usage = "<username> <amount>")
+    public void onMoneyGive(CommandContext args, CommandSender sender) throws CommandNumberFormatException {
         if (sender instanceof Player) {
             Player p = (Player) sender;
-            if (p.hasPermission("Hah.Money")) {
-                Player t = Bukkit.getPlayer(args.getString(0));
-                if (t.isOnline()) {
-                    Main.playerStats.get(t.getUniqueId()).balance += 1000;
-                    t.sendMessage(p.getDisplayName() + ChatColor.GREEN + "" + ChatColor.BOLD + " has given you " + ChatColor.BLUE + "" + ChatColor.BOLD + " $1000" + ChatColor.GREEN + "" + ChatColor.BOLD + "!");
-                    p.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "You gave " + t.getDisplayName() + ChatColor.BLUE + "" + ChatColor.BOLD + " $1000" + ChatColor.GREEN + ChatColor.BOLD + "!");
+            if (args.argsLength() == 2) {
+                if (p.hasPermission("Hah.Money")) {
+                    Player t = Bukkit.getPlayer(args.getString(0));
+                    if (t.isOnline()) {
+                        Main.playerStats.get(t.getUniqueId()).balance += args.getInteger(1);
+                        t.sendMessage(p.getDisplayName() + ChatColor.GREEN + "" + ChatColor.BOLD + " has given you " + ChatColor.BLUE + "" + ChatColor.BOLD + args.getInteger(1) + ChatColor.GREEN + "" + ChatColor.BOLD + "!");
+                        p.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "You gave " + t.getDisplayName() + ChatColor.BLUE + " " + ChatColor.BOLD + args.getInteger(1) + ChatColor.GREEN + ChatColor.BOLD + "!");
+                    } else {
+                        sender.sendMessage(ChatColor.RED + "That player is not online!");
+                    }
                 } else {
-                    sender.sendMessage(ChatColor.RED + "That player is not online!");
+                    sender.sendMessage(ChatColor.RED + "You do not have enough permissions to execute this command!");
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "You do not have enough permissions to execute this command!");
+                sender.sendMessage(ChatColor.RED + "Incorrect Usage! Do /money <username> <amount>");
             }
         } else {
             sender.sendMessage(ChatColor.RED + "You need to be a player to use this command!");
         }
     }
 
-    @Command(aliases = "stop",
-            min = 0,
-            max = 0,
-            desc = "Kicks all online players then stops the server",
-            usage = "")
+    @Command(aliases = "stop", max = 0, desc = "Kicks all online players then stops the server")
     public void onServerStop(CommandContext args, CommandSender sender) {
         if (sender.hasPermission("Hah.Stop")) {
             for (Player a : Bukkit.getServer().getOnlinePlayers()) {

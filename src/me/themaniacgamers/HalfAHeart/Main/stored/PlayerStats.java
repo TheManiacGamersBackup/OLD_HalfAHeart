@@ -28,8 +28,8 @@ import java.util.UUID;
 public class PlayerStats implements Listener {
 
     public int kills, deaths, killstreak, balance, level, bounty, xptonxtlevel, checkpoints, highestks;
+    public String group;
     Main plugin;
-    StringsManager strings = StringsManager.getInstance();
 
     public PlayerStats(Player pl, Main plugin) {
         this.plugin = plugin;
@@ -39,11 +39,12 @@ public class PlayerStats implements Listener {
                 kills = playerData.getConfigurationSection("Stats").getInt("Kills");
                 deaths = playerData.getConfigurationSection("Stats").getInt("Deaths");
                 highestks = playerData.getConfigurationSection("Stats").getInt("HighestKS");
-                balance = playerData.getConfigurationSection("Stats").getInt("Balance");
+                balance = playerData.getConfigurationSection("Options").getInt("Balance");
                 level = playerData.getConfigurationSection("Stats").getInt("Level");
                 xptonxtlevel = playerData.getConfigurationSection("Stats").getInt("XPtoNxtLvl");
                 bounty = playerData.getConfigurationSection("Stats").getInt("Bounty");
                 checkpoints = playerData.getConfigurationSection("Stats").getInt("Checkpoints");
                 killstreak = playerData.getConfigurationSection("Stats").getInt("Killstreak");
+                group = playerData.getConfigurationSection("Options").getString("Group");
     }
 }

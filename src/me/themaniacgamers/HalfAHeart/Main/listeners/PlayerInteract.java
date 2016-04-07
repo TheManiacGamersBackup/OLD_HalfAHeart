@@ -43,26 +43,32 @@ public class PlayerInteract implements Listener {
                     continue;
                 }
                 Player nearbyp = (Player) nearby;
-                Player nearbypEffect = (Player) nearby;
                 Location loc = grenade.getLocation();
-                grenade.getWorld().createExplosion(loc, 0.0F);
-                ParticleEffect.EXPLOSION_LARGE.display(1, 1, 1, 1, 100, nearbyp.getLocation(), nearbypEffect);
-                BountifulAPI.sendActionBar(nearbyp.getPlayer(), ChatColor.GOLD + "" + ChatColor.BOLD + "Fire in the hole!!!");
-                nearbyp.damage(1.0); // Damages player by DamageAmount
+//                grenade.getWorld().createExplosion(loc, 0.0F);
+//                ParticleEffect.EXPLOSION_LARGE.display(1, 1, 1, 1, 100, grenade.getLocation(), nearbypEffect);
+//                BountifulAPI.sendActionBar(nearbyp.getPlayer(), ChatColor.GOLD + "" + ChatColor.BOLD + "Fire in the hole!!!");
+                nearbyp.damage(1D);
+            }
+            for (Entity nearbyEffect : grenade.getNearbyEntities(20, 20, 20)) {
+                if (!(nearbyEffect instanceof Player)) {
+                    return;
+                }
+                Player nearbypEffect = (Player) nearbyEffect;
+                ParticleEffect.EXPLOSION_NORMAL.display(1, 1, 1, 1, 100, grenade.getLocation(), nearbypEffect);
+            }
+            for (Entity nearbyEffect : grenade.getNearbyEntities(10, 10, 10)) {
+                if (!(nearbyEffect instanceof Player)) {
+                    return;
+                }
+                Player nearbypEffect = (Player) nearbyEffect;
+                BountifulAPI.sendActionBar(nearbypEffect.getPlayer(), ChatColor.GOLD + "" + ChatColor.BOLD + "Fire in the hole!!!");
             }
         }
     }
 
     @EventHandler(priority = EventPriority.NORMAL)
-    public void enderpearlDisable(ProjectileLaunchEvent e) {
-        if (e.getEntity() instanceof EnderPearl) {
-            e.setCancelled(true);
-        }
-    }
-
-    @EventHandler(priority = EventPriority.NORMAL)
     public void eyeofenderDisable(PlayerInteractEvent e) {
-        if (e.getPlayer().getInventory().getItemInMainHand().equals(Material.EYE_OF_ENDER)) {
+        if (e.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.EYE_OF_ENDER)) {
             e.setCancelled(true);
         }
     }

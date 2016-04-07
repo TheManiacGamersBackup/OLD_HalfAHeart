@@ -43,6 +43,7 @@ public class PlayerJoin implements Listener {
             e.getPlayer().setMaxHealth(1D);
             e.getPlayer().setHealth(1D);
         }
+        p.setCollidable(false);
         e.getPlayer().performCommand("spawn");
         p.sendMessage(strings.hahPrefix);
         UUID playerUUID = p.getUniqueId();
@@ -62,7 +63,7 @@ public class PlayerJoin implements Listener {
             try {
                 pFile.createNewFile();
                 System.out.println(strings.hah + strings.createdFile + p.getUniqueId() + " (" + p.getName() + ")!");
-                Bukkit.broadcastMessage(strings.firstJoinp1 + pName + strings.firstJoinp2);
+                Bukkit.broadcastMessage(strings.defaultMsgs + p.getDisplayName() + ChatColor.GREEN + " has joined for the first time, welcome!");
                 playerData.createSection("Options.Username");
                 playerData.createSection("Options.Balance");
                 playerData.createSection("Options.Group");

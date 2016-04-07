@@ -23,7 +23,7 @@ public class PlayerLeave implements Listener {
         Player p = (Player) e.getPlayer();
         e.setQuitMessage(null);
         if (p.hasPermission("Hah.LeaveNotify")) {
-            e.setQuitMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_RED + "-" + ChatColor.DARK_GRAY + "]" + p.getName());
+            e.setQuitMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_RED + "-" + ChatColor.DARK_GRAY + "]" + ChatColor.GRAY + p.getName());
         }
 //        PlayerData currentPlayer = PlayerData.loadedPlayer.get(p.getUniqueId());
 //        currentPlayer.saveData();

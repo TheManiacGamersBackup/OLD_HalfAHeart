@@ -5,6 +5,7 @@ import me.themaniacgamers.HalfAHeart.Main.Main;
 import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
 import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -36,7 +37,6 @@ public class PlayerAttacked implements Listener {
                 if (a.getLevel() != 0.0) {
                     if (p.getLevel() <= 50.0) {
                         BountifulAPI.sendActionBar(p.getPlayer(), ChatColor.GREEN + "" + ChatColor.BOLD + "You do not have enough strength to block " + ChatColor.AQUA + "" + ChatColor.BOLD + a.getName() + ChatColor.GREEN + "" + ChatColor.BOLD + "'s hits!");
-                        e.setDamage(1.0);
                     } else {
                         BountifulAPI.sendActionBar(a.getPlayer(), ChatColor.AQUA + "" + ChatColor.BOLD + "" + p.getName() + ChatColor.GREEN + "" + ChatColor.BOLD + " has blocked your hit! -25 strength!");
                         BountifulAPI.sendActionBar(p.getPlayer(), ChatColor.GREEN + "" + ChatColor.BOLD + "You are blocking " + ChatColor.AQUA + "" + ChatColor.BOLD + a.getName() + ChatColor.GREEN + "" + ChatColor.BOLD + "'s hits! -50 strength!");
@@ -49,6 +49,7 @@ public class PlayerAttacked implements Listener {
                         direction.setZ(direction.getZ() + 1);
                         a.setVelocity(direction);
                         p.addPotionEffect(PotionEffectType.SLOW.createEffect(60, 1));
+                        p.playSound(p.getPlayer().getLocation(), Sound.BLOCK_ANVIL_LAND, 4, 4);
                     }
                 } else {
                     BountifulAPI.sendActionBar(a.getPlayer(), ChatColor.RED + "" + ChatColor.BOLD + "You do not have enough strength to hit " + ChatColor.AQUA + "" + ChatColor.BOLD + p.getName() + ChatColor.RED + "" + ChatColor.BOLD + ", while they are blocking!");
@@ -56,15 +57,12 @@ public class PlayerAttacked implements Listener {
                     e.setDamage(0.0);
                     e.setCancelled(true);
                 }
-            } else {
-                e.setDamage(1.0);
             }
         } else {
             e.setDamage(0.0);
             e.setCancelled(true);
             BountifulAPI.sendActionBar(p.getPlayer(), ChatColor.DARK_RED + "" + ChatColor.BOLD + a.getName() + ChatColor.RED + "" + ChatColor.BOLD + " is trying to hit you, but isn't holding a sword!");
             BountifulAPI.sendActionBar(a.getPlayer(), ChatColor.RED + "" + ChatColor.BOLD + "You can't hit people with this item! Change to your sword!");
-
         }
     }
 }

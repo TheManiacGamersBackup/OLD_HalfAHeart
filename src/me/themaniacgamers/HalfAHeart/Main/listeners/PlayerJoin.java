@@ -29,6 +29,7 @@ public class PlayerJoin implements Listener {
     StringsManager strings = StringsManager.getInstance();
     double kills;
     double deaths;
+
     public PlayerJoin(Main plugin) {
         this.plugin = plugin;
     }
@@ -94,6 +95,47 @@ public class PlayerJoin implements Listener {
             } catch (IOException ex) {
                 //do nothing
             }
+
         }
+//        if (pFile.exists()) {
+//            p.sendMessage(strings.welcomeBack + p.getName() + strings.aquaExclamation);
+//            System.out.println(strings.logPrefix + strings.loadedFile + p.getUniqueId() + " (" + pName + ")!");
+//        } else {
+//            try {
+//                pFile.createNewFile();
+//                System.out.println(strings.hah + strings.createdFile + p.getUniqueId() + " (" + p.getName() + ")!");
+//                Bukkit.broadcastMessage(strings.defaultMsgs + p.getDisplayName() + ChatColor.GREEN + " has joined for the first time, welcome!");
+//                playerData.createSection("Options.Username");
+//                playerData.createSection("Options.Balance");
+//                playerData.createSection("Options.Group");
+//                playerData.createSection("Stats.Level");
+//                playerData.createSection("Stats.Checkpoints");
+//                playerData.createSection("Stats.Kills");
+//                playerData.createSection("Stats.Deaths");
+//                playerData.createSection("Stats.HighestKS");
+//                playerData.createSection("Stats.Bounty");
+//                playerData.createSection("Stats.XPtoNxtLvl");
+//                playerData.createSection("Stats.Killstreak");
+//                playerData.set("Options.Group", "Citizen");
+//                playerData.set("Options.Username", p.getName());
+//                playerData.set("Options.Balance", 500);
+//                playerData.set("Stats.XPtoNxtLvl", 100);
+//                playerData.set("Stats.Kills", 0.0);
+//                playerData.set("Stats.Deaths", 0.0);
+//                playerData.set("Stats.HighestKS", 0);
+//                playerData.set("Stats.Bounty", 0);
+//                playerData.set("Stats.Level", 0);
+//                playerData.set("Stats.Checkpoints", 0);
+//                playerData.set("Stats.Killstreak", 0);
+//                try {
+//                    playerData.save(pFile);
+//                } catch (IOException ex) {
+//                    System.out.println("[HalfAHeart] [Error] COULD NOT SAVE THE PLAYER FILE!");
+//                }
+//            } catch (IOException ex) {
+//                //do nothing
+//            }
+//        }
     }
+
 }

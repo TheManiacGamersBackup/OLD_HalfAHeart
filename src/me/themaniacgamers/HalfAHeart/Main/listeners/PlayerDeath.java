@@ -58,7 +58,7 @@ public class PlayerDeath implements Listener {
         UUID playerUUID = p.getUniqueId();
         BountifulAPI.sendTitle(p.getPlayer(), 20, 20, 20, ChatColor.DARK_RED + "" + ChatColor.BOLD + "" + ChatColor.MAGIC + "II" + ChatColor.DARK_RED + "" + ChatColor.BOLD + "K.O" + ChatColor.DARK_RED + "" + ChatColor.BOLD + "" + ChatColor.MAGIC + "II", " ");
         k.sendMessage(strings.defaultMsgs + ChatColor.GREEN + "You killed " + p.getDisplayName() + ChatColor.GREEN + "!");
-        k.sendMessage(strings.defaultMsgs + ChatColor.GREEN + "You gained $5 and 5 strength, as well as 5 levels!");
+        k.sendMessage(strings.defaultMsgs + ChatColor.GREEN + "You gained $5 and 5 strength, as well as 5 EXP!");
         p.sendMessage(strings.defaultMsgs + ChatColor.RED + "You were killed by " + k.getDisplayName());
         File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
         File pFile = new File(dataBase, File.separator + playerUUID + ".yml");

@@ -11,10 +11,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.io.File;
 import java.util.Arrays;
 
 /**
@@ -257,15 +260,38 @@ public class Commands {
     @Command(aliases = "stop", max = 0, desc = "Kicks all online players then stops the server")
     public void onServerStop(CommandContext args, CommandSender sender) {
         if (sender.hasPermission("Hah.Stop")) {
-            for (Player a : Bukkit.getServer().getOnlinePlayers()) {
-                a.kickPlayer(ChatColor.RED + "Server has been stopped. Check back soon!");
-                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-                    @Override
-                    public void run() {
-                        Bukkit.shutdown();
-                    }
-                }, 40L);
+            if (Bukkit.getOnlinePlayers().size() != 0) {
+                for (final Player found : Bukkit.getOnlinePlayers()) {
+                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+                        @Override
+                        public void run() {
+                            Bukkit.broadcastMessage("[Server] Server being stopped now!");
+                            Bukkit.shutdown();
+                        }
+                    }, 40L);
+                }
+            } else {
+                Bukkit.broadcastMessage("[Server] Shutting down!");
+                Bukkit.shutdown();
             }
+
+        } else {
+            sender.sendMessage(ChatColor.RED + "You do not have permission to execute this command!");
+        }
+    }
+
+    @Command(aliases = "ranks", max = 0, desc = "Shows the ranking system for Half A Heart!")
+    public void onRanks(CommandContext args, CommandSender sender) {
+        if (sender.hasPermission("Hah.Ranks")) {
+            sender.sendMessage(strings.hahPrefixRanks);
+            sender.sendMessage(strings.thugKills);
+            sender.sendMessage(strings.soldierKills);
+            sender.sendMessage(strings.hustlerKills);
+            sender.sendMessage(strings.bossKills);
+            sender.sendMessage(strings.facilitatorKills);
+            sender.sendMessage(strings.kingpinKills);
+            sender.sendMessage(strings.publicenemyKills);
+            sender.sendMessage(strings.godKills);
         } else {
             sender.sendMessage(ChatColor.RED + "You do not have permission to execute this command!");
         }

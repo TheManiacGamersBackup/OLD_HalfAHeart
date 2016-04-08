@@ -44,12 +44,10 @@ public class PlayerAttacked implements Listener {
                         e.setCancelled(true);
                         p.setLevel(p.getLevel() - 50);
                         a.setLevel(a.getLevel() - 25);
-                        Vector direction = a.getLocation().toVector().subtract(p.getLocation().toVector()).normalize();
-                        direction.setX(direction.getX() + 1);
-                        direction.setZ(direction.getZ() + 1);
-                        a.setVelocity(direction);
+                        a.setVelocity(p.getVelocity().multiply(-4));
                         p.addPotionEffect(PotionEffectType.SLOW.createEffect(60, 1));
                         p.playSound(p.getPlayer().getLocation(), Sound.BLOCK_ANVIL_LAND, 4, 4);
+                        a.playSound(p.getPlayer().getLocation(), Sound.BLOCK_ANVIL_LAND, 4, 4);
                     }
                 } else {
                     BountifulAPI.sendActionBar(a.getPlayer(), ChatColor.RED + "" + ChatColor.BOLD + "You do not have enough strength to hit " + ChatColor.AQUA + "" + ChatColor.BOLD + p.getName() + ChatColor.RED + "" + ChatColor.BOLD + ", while they are blocking!");

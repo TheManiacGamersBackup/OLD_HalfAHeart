@@ -12,6 +12,8 @@ import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
@@ -103,10 +105,25 @@ public class Main extends JavaPlugin implements Listener {
 
     public void onDisable() {
         if (Bukkit.getOnlinePlayers().size() != 0) {
-            Player a = (Player) Bukkit.getOnlinePlayers();
-            a.kickPlayer(ChatColor.RED + "" + ChatColor.BOLD + "Server is being stopped! Call back shortly. If the server hasn't come back online for a bit, contact the owner!");
+            for (Player found : Bukkit.getOnlinePlayers()) {
+                final PlayerStats stats = new PlayerStats(found, plugin);
+                File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
+                File pFile = new File(dataBase, File.separator + found.getPlayer().getUniqueId() + ".yml");
+                final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
+                playerData.getConfigurationSection("Stats").set("Kills", stats.kills);
+                playerData.getConfigurationSection("Stats").set("Deaths", stats.deaths);
+                playerData.getConfigurationSection("Options").set("Balance", stats.balance);
+                playerData.getConfigurationSection("Options").set("Group", stats.group);
+                playerData.getConfigurationSection("Stats").set("Bounty", stats.bounty);
+                playerData.getConfigurationSection("Stats").set("Level", stats.level);
+                playerData.getConfigurationSection("Stats").set("XPtoNxtLvl", stats.xptonxtlevel);
+                playerData.getConfigurationSection("Stats").set("Checkpoints", stats.checkpoints);
+                playerData.getConfigurationSection("Stats").set("Killstreak", stats.killstreak);
+                playerData.getConfigurationSection("Stats").set("HighestKS", stats.highestks);
+            }
         }
     }
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {

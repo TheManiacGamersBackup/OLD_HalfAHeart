@@ -1,4 +1,5 @@
 name: HalfAHeart
 main: me.themaniacgamers.HalfAHeart.Main.Main
 author: [TheManiacGamers]
-version: 0.2
+version: 0.3
+depend: [achievements]

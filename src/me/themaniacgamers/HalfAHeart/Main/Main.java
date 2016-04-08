@@ -2,11 +2,15 @@ package me.themaniacgamers.HalfAHeart.Main;
 
 import com.sk89q.bukkit.util.CommandsManagerRegistration;
 import com.sk89q.minecraft.util.commands.*;
+import me.themaniacgamers.HalfAHeart.Main.achievements.Reach10Kills;
 import me.themaniacgamers.HalfAHeart.Main.listeners.*;
 import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
 import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
+import me.themaniacgamers.HalfAHeart.Main.stored.PlayerAchI;
+import me.themaniacgamers.HalfAHeart.Main.stored.PlayerAchievements;
 import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
 import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
+import noorgh.achievements.Achievement;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -34,6 +38,8 @@ public class Main extends JavaPlugin implements Listener {
     public Location spawn = null;
     protected ArrayList<Class> cmdClasses;
     public static HashMap<UUID, PlayerStats> playerStats;
+    public static HashMap<UUID, PlayerAchievements> playerAchievements;
+    public static HashMap<UUID, PlayerAchI> playerAchI;
     ConfigsManager configs = ConfigsManager.getInstance();
     StringsManager strings = StringsManager.getInstance();
     private CommandsManager<CommandSender> commands;
@@ -73,12 +79,10 @@ public class Main extends JavaPlugin implements Listener {
         File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
         if (!(dataBase.exists())) {
             try {
-                if (dataBase.createNewFile()) ; //...?
+                dataBase.createNewFile(); //...?
             } catch (IOException ex) {
                 ex.printStackTrace();
-
-                //lol a yaml file isn't a database
-                log("COULD NOT CREATE THE DATABASE FILE! CREATE IT MANUALLY. plugins/HalfAHeart/PlayerDatabase/");
+                log("COULD NOT CREATE THE DATABASE FOLDER! CREATE IT MANUALLY. plugins/HalfAHeart/PlayerDatabase/");
                 Bukkit.shutdown();
             }
         }

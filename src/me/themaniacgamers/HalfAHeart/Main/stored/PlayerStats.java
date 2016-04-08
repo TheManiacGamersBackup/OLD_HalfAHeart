@@ -27,24 +27,25 @@ import java.util.UUID;
  */
 public class PlayerStats implements Listener {
 
-    public int kills, deaths, killstreak, balance, level, bounty, xptonxtlevel, checkpoints, highestks;
+    public int achievements, kills, deaths, killstreak, balance, level, bounty, xptonxtlevel, checkpoints, highestks;
     public String group;
     Main plugin;
 
     public PlayerStats(Player pl, Main plugin) {
         this.plugin = plugin;
-                File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
-                File pFile = new File(dataBase, File.separator + pl.getUniqueId() + ".yml");
-                final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
-                kills = playerData.getConfigurationSection("Stats").getInt("Kills");
-                deaths = playerData.getConfigurationSection("Stats").getInt("Deaths");
-                highestks = playerData.getConfigurationSection("Stats").getInt("HighestKS");
-                balance = playerData.getConfigurationSection("Options").getInt("Balance");
-                level = playerData.getConfigurationSection("Stats").getInt("Level");
-                xptonxtlevel = playerData.getConfigurationSection("Stats").getInt("XPtoNxtLvl");
-                bounty = playerData.getConfigurationSection("Stats").getInt("Bounty");
-                checkpoints = playerData.getConfigurationSection("Stats").getInt("Checkpoints");
-                killstreak = playerData.getConfigurationSection("Stats").getInt("Killstreak");
-                group = playerData.getConfigurationSection("Options").getString("Group");
+        File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
+        File pFile = new File(dataBase, File.separator + pl.getUniqueId() + ".yml");
+        final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
+        kills = playerData.getConfigurationSection("Stats").getInt("Kills");
+        deaths = playerData.getConfigurationSection("Stats").getInt("Deaths");
+        highestks = playerData.getConfigurationSection("Stats").getInt("HighestKS");
+        balance = playerData.getConfigurationSection("Options").getInt("Balance");
+        level = playerData.getConfigurationSection("Stats").getInt("Level");
+        xptonxtlevel = playerData.getConfigurationSection("Stats").getInt("XPtoNxtLvl");
+        bounty = playerData.getConfigurationSection("Stats").getInt("Bounty");
+        checkpoints = playerData.getConfigurationSection("Stats").getInt("Checkpoints");
+        killstreak = playerData.getConfigurationSection("Stats").getInt("Killstreak");
+        group = playerData.getConfigurationSection("Options").getString("Group");
+        achievements = playerData.getConfigurationSection("Stats").getInt("Achievements");
     }
 }

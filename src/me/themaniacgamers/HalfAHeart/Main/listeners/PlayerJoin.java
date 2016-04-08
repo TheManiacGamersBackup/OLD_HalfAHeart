@@ -76,6 +76,19 @@ public class PlayerJoin implements Listener {
                 playerData.createSection("Stats.Bounty");
                 playerData.createSection("Stats.XPtoNxtLvl");
                 playerData.createSection("Stats.Killstreak");
+                playerData.createSection("Stats.Achievements");
+                playerData.createSection("Achievements.Reach10Kills");
+                playerData.createSection("Achievements.Reach50Kills");
+                playerData.createSection("Achievements.ReachThug");
+                playerData.createSection("Achievements.KillTheManiacGamers");
+                playerData.createSection("Achievements.KillHtgan");
+                playerData.createSection("Achievements.Join50Times");
+                playerData.createSection("Achievements.Join100Times");
+                playerData.createSection("Achievements.Join150Times");
+                playerData.createSection("Achievements.Join200Times");
+                playerData.createSection("Achievements.ReachAKSOf20");
+                playerData.createSection("Achievements.ReachGod");
+                playerData.createSection("Achievements.HasAllCheckpoints");
                 playerData.set("Options.Group", "Citizen");
                 playerData.set("Options.Username", p.getName());
                 playerData.set("Options.Balance", 500);
@@ -87,6 +100,19 @@ public class PlayerJoin implements Listener {
                 playerData.set("Stats.Level", 0);
                 playerData.set("Stats.Checkpoints", 0);
                 playerData.set("Stats.Killstreak", 0);
+                playerData.set("Stats.Achievements", 0);
+                playerData.set("Achievements.Reach10Kills", "false");
+                playerData.set("Achievements.Reach50Kills", "false");
+                playerData.set("Achievements.ReachThug", "false");
+                playerData.set("Achievements.KillTheManiacGamers", "false");
+                playerData.set("Achievements.KillHtgan", "false");
+                playerData.set("Achievements.Join50Times", "false");
+                playerData.set("Achievements.Join100Times", "false");
+                playerData.set("Achievements.Join150Times", "false");
+                playerData.set("Achievements.Join200Times", "false");
+                playerData.set("Achievements.ReachAKSOf20", "false");
+                playerData.set("Achievements.ReachGod", "false");
+                playerData.set("Achievements.HasAllCheckpoints", "false");
                 try {
                     playerData.save(pFile);
                 } catch (IOException ex) {

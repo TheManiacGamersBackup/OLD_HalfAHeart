@@ -6,6 +6,7 @@ import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
 import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
 import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
@@ -90,19 +91,23 @@ public class PlayerStatsListener implements Listener {
                         Score playerCheckpoints = objective.getScore(ChatColor.GRAY + "Checkpoints: " + ChatColor.WHITE + stats.checkpoints);
                         playerCheckpoints.setScore(9);
 
+                        Score playerAchievements = objective.getScore(ChatColor.GRAY + "Achievements: " + ChatColor.WHITE + stats.achievementsam);
+                        playerAchievements.setScore(8);
+
                         Score playerBounty = objective.getScore(ChatColor.GRAY + "Bounty On Head: " + ChatColor.WHITE + stats.bounty);
-                        playerBounty.setScore(8);
+                        playerBounty.setScore(7);
 
                         Score emptyLine = objective.getScore("                            ");
-                        emptyLine.setScore(7);
+                        emptyLine.setScore(6);
 
                         Score voteParty = objective.getScore(ChatColor.GRAY + "" + ChatColor.BOLD + "> " + ChatColor.YELLOW + "" + ChatColor.BOLD + "VoteParty:");
-                        voteParty.setScore(6);
+                        voteParty.setScore(5);
 
                         Score votesNeeded = objective.getScore(ChatColor.GRAY + "Votes Needed: " + ChatColor.WHITE + "Unknown");
-                        votesNeeded.setScore(5);
+                        votesNeeded.setScore(4);
 
                         pl.setScoreboard(board);
+
                     }
                 }, 0, 20 * 3);
             }

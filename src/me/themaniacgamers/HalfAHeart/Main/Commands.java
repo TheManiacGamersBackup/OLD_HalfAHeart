@@ -14,11 +14,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.UUID;
 
 /**
  * Created by Corey on 4/2/2016.
@@ -296,4 +298,26 @@ public class Commands {
             sender.sendMessage(ChatColor.RED + "You do not have permission to execute this command!");
         }
     }
+
+    @Command(aliases = "uuid", max = 1, desc = "Get the UUID of any online player!")
+    public void onUUID(CommandContext args, CommandSender sender) {
+        if (sender.hasPermission("Hah.UUID")) {
+            if (args.argsLength() == 0) {
+                sender.sendMessage(ChatColor.RED + "You must specify an online players name!");
+                return;
+            }
+            if (args.argsLength() == 1) {
+                Player t = Bukkit.getPlayer(args.getString(0));
+                if (t.isOnline()) {
+                    UUID tUUID = t.getUniqueId();
+                    sender.sendMessage(ChatColor.AQUA + "That players UUID is " + ChatColor.GREEN + ChatColor.BOLD + "" + tUUID + "" + ChatColor.AQUA + "!");
+                } else {
+                    sender.sendMessage(ChatColor.RED + "That player is not online!");
+                }
+            }
+        } else {
+            sender.sendMessage(ChatColor.RED + "You do not have permission to execute this command!s");
+        }
+    }
+
 }

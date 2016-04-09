@@ -13,6 +13,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.io.IOException;
@@ -76,19 +77,28 @@ public class PlayerJoin implements Listener {
                 playerData.createSection("Stats.Bounty");
                 playerData.createSection("Stats.XPtoNxtLvl");
                 playerData.createSection("Stats.Killstreak");
-                playerData.createSection("Stats.Achievements");
-                playerData.createSection("Achievements.Reach10Kills");
-                playerData.createSection("Achievements.Reach50Kills");
-                playerData.createSection("Achievements.ReachThug");
-                playerData.createSection("Achievements.KillTheManiacGamers");
-                playerData.createSection("Achievements.KillHtgan");
-                playerData.createSection("Achievements.Join50Times");
-                playerData.createSection("Achievements.Join100Times");
-                playerData.createSection("Achievements.Join150Times");
-                playerData.createSection("Achievements.Join200Times");
-                playerData.createSection("Achievements.ReachAKSOf20");
-                playerData.createSection("Achievements.ReachGod");
-                playerData.createSection("Achievements.HasAllCheckpoints");
+                playerData.createSection("Stats.Stats");
+                playerData.createSection("Stats.Achievements.Reach10Kills");
+                playerData.createSection("Stats.Achievements.Reach50Kills");
+                playerData.createSection("Stats.Achievements.ReachThug");
+                playerData.createSection("Stats.Achievements.KillTheManiacGamers");
+                playerData.createSection("Stats.Achievements.KillHtgan");
+                playerData.createSection("Stats.Achievements.Join50Times");
+                playerData.createSection("Stats.Achievements.Join100Times");
+                playerData.createSection("Stats.Achievements.Join150Times");
+                playerData.createSection("Stats.Achievements.Join200Times");
+                playerData.createSection("Stats.Achievements.ReachAKSOf20");
+                playerData.createSection("Stats.Achievements.ReachGod");
+                playerData.createSection("Stats.Achievements.HasAllCheckpoints");
+                playerData.createSection("Stats.Count.Reach10Kills");
+                playerData.createSection("Stats.Count.Reach50Kills");
+                playerData.createSection("Stats.Count.Join50Times");
+                playerData.createSection("Stats.Count.Join100Times");
+                playerData.createSection("Stats.Count.Join150Times");
+                playerData.createSection("Stats.Count.Join200Times");
+                playerData.createSection("Stats.Count.ReachAKSOf20");
+                playerData.createSection("Stats.Count.ReachGod");
+                playerData.createSection("Stats.Count.HasAllCheckpoints");
                 playerData.set("Options.Group", "Citizen");
                 playerData.set("Options.Username", p.getName());
                 playerData.set("Options.Balance", 500);
@@ -100,19 +110,27 @@ public class PlayerJoin implements Listener {
                 playerData.set("Stats.Level", 0);
                 playerData.set("Stats.Checkpoints", 0);
                 playerData.set("Stats.Killstreak", 0);
-                playerData.set("Stats.Achievements", 0);
-                playerData.set("Achievements.Reach10Kills", "false");
-                playerData.set("Achievements.Reach50Kills", "false");
-                playerData.set("Achievements.ReachThug", "false");
-                playerData.set("Achievements.KillTheManiacGamers", "false");
-                playerData.set("Achievements.KillHtgan", "false");
-                playerData.set("Achievements.Join50Times", "false");
-                playerData.set("Achievements.Join100Times", "false");
-                playerData.set("Achievements.Join150Times", "false");
-                playerData.set("Achievements.Join200Times", "false");
-                playerData.set("Achievements.ReachAKSOf20", "false");
-                playerData.set("Achievements.ReachGod", "false");
-                playerData.set("Achievements.HasAllCheckpoints", "false");
+                playerData.set("Stats.Stats", 0);
+                playerData.set("Stats.Achievements.Reach10Kills", "false");
+                playerData.set("Stats.Achievements.Reach50Kills", "false");
+                playerData.set("Stats.Achievements.ReachThug", "false");
+                playerData.set("Stats.Achievements.KillTheManiacGamers", "false");
+                playerData.set("Stats.Achievements.KillHtgan", "false");
+                playerData.set("Stats.Achievements.Join50Times", "false");
+                playerData.set("Stats.Achievements.Join100Times", "false");
+                playerData.set("Stats.Achievements.Join150Times", "false");
+                playerData.set("Stats.Achievements.Join200Times", "false");
+                playerData.set("Stats.Achievements.ReachAKSOf20", "false");
+                playerData.set("Stats.Achievements.ReachGod", "false");
+                playerData.set("Stats.Achievements.HasAllCheckpoints", "false");
+                playerData.set("Stats.Count.Reach10Kills", 0);
+                playerData.set("Stats.Count.Reach50Kills", 0);
+                playerData.set("Stats.Count.Join50Times", 1);
+                playerData.set("Stats.Count.Join100Times", 1);
+                playerData.set("Stats.Count.Join150Times", 1);
+                playerData.set("Stats.Count.Join200Times", 1);
+                playerData.set("Stats.Count.ReachAKSOf20", 0);
+                playerData.set("Stats.Count.HasAllCheckpoints", 0);
                 try {
                     playerData.save(pFile);
                 } catch (IOException ex) {
@@ -123,45 +141,6 @@ public class PlayerJoin implements Listener {
             }
 
         }
-//        if (pFile.exists()) {
-//            p.sendMessage(strings.welcomeBack + p.getName() + strings.aquaExclamation);
-//            System.out.println(strings.logPrefix + strings.loadedFile + p.getUniqueId() + " (" + pName + ")!");
-//        } else {
-//            try {
-//                pFile.createNewFile();
-//                System.out.println(strings.hah + strings.createdFile + p.getUniqueId() + " (" + p.getName() + ")!");
-//                Bukkit.broadcastMessage(strings.defaultMsgs + p.getDisplayName() + ChatColor.GREEN + " has joined for the first time, welcome!");
-//                playerData.createSection("Options.Username");
-//                playerData.createSection("Options.Balance");
-//                playerData.createSection("Options.Group");
-//                playerData.createSection("Stats.Level");
-//                playerData.createSection("Stats.Checkpoints");
-//                playerData.createSection("Stats.Kills");
-//                playerData.createSection("Stats.Deaths");
-//                playerData.createSection("Stats.HighestKS");
-//                playerData.createSection("Stats.Bounty");
-//                playerData.createSection("Stats.XPtoNxtLvl");
-//                playerData.createSection("Stats.Killstreak");
-//                playerData.set("Options.Group", "Citizen");
-//                playerData.set("Options.Username", p.getName());
-//                playerData.set("Options.Balance", 500);
-//                playerData.set("Stats.XPtoNxtLvl", 100);
-//                playerData.set("Stats.Kills", 0.0);
-//                playerData.set("Stats.Deaths", 0.0);
-//                playerData.set("Stats.HighestKS", 0);
-//                playerData.set("Stats.Bounty", 0);
-//                playerData.set("Stats.Level", 0);
-//                playerData.set("Stats.Checkpoints", 0);
-//                playerData.set("Stats.Killstreak", 0);
-//                try {
-//                    playerData.save(pFile);
-//                } catch (IOException ex) {
-//                    System.out.println("[HalfAHeart] [Error] COULD NOT SAVE THE PLAYER FILE!");
-//                }
-//            } catch (IOException ex) {
-//                //do nothing
-//            }
-//        }
     }
 
 }

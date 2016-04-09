@@ -5,7 +5,6 @@ import java.io.File;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
 
 import me.themaniacgamers.HalfAHeart.Main;
 
@@ -13,7 +12,7 @@ import me.themaniacgamers.HalfAHeart.Main;
  * @author Corey
  * @author Bee
  */
-public class PlayerStatsOld implements Listener {
+public class PlayerStatsOld {
 
     public int iFindAllCheckpoints, iReach10Kills, iReach50Kills, iReachThug, iKillTheManiacGamers, iKillHtgan, iJoin50Times, iJoin100Times, iJoin150Times, iJoin200Times, iReachAKSOf20, iReachGod, achievementsam, kills, deaths, killstreak, balance, level, bounty, xptonxtlevel, checkpoints, highestks;
     public String group, FindAllCheckpoints, Reach10Kills, Reach50Kills, ReachThug, KillTheManiacGamers, KillHtgan, Join50Times, Join100Times, Join150Times, Join200Times, ReachAKSOf20, ReachGod;

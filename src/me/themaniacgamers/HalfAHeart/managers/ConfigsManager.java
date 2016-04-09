@@ -102,13 +102,7 @@ public class ConfigsManager {
         File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
         File pFile = new File(dataBase, File.separator + playerUUID + ".yml");
         FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
-        PlayerData Killer = PlayerData.pKills.get(player.getUniqueId());
-        PlayerData Deaths = PlayerData.pDeaths.get(player.getUniqueId());
-        PlayerData Bounty = PlayerData.pBounty.get(player.getUniqueId());
         try {
-            Bounty.saveData();
-            Killer.saveData();
-            Deaths.saveData();
             playerData.save(pFile);
         } catch (IOException ex) {
             ex.printStackTrace();

@@ -8,6 +8,8 @@ import me.themaniacgamers.HalfAHeart.managers.ConfigsManager;
 import me.themaniacgamers.HalfAHeart.managers.StringsManager;
 import me.themaniacgamers.HalfAHeart.storage.PlayerStatsOld;
 import me.themaniacgamers.HalfAHeart.utils.BountifulAPI;
+import net.milkbowl.vault.economy.Economy;
+import us.riftmc.htgan.halfAHeart.utils.SettingsManager;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -35,6 +37,8 @@ public class Main extends JavaPlugin implements Listener {
     public Main plugin;
     public Location spawn = null;
     protected ArrayList<Class> cmdClasses;
+	public static Economy econ = null;
+	SettingsManager settings = SettingsManager.getInstance();
     public static HashMap<UUID, PlayerStatsOld> playerStats;
     //    public static HashMap<UUID, PlayerAchievements> playerAchievements;
     ConfigsManager configs = ConfigsManager.getInstance();
@@ -75,6 +79,10 @@ public class Main extends JavaPlugin implements Listener {
         pm.registerEvents(new PlayerAttacked(this), this);
         pm.registerEvents(new PlayerStatsListener(this), this);
         pm.registerEvents(new PlayerAchListener(this), this);
+		if (!setupEconomy()){
+			getLogger().severe(String.format("[%s] - Disabled due to no Vault dependecy found!", getDescription().getName()));
+			getServer().getPluginManager().disablePlugin(this);
+		}
         File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
         if (!(dataBase.exists())) {
             try {

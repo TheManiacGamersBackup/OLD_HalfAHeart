@@ -91,5 +91,10 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+        	<groupId>net.milkbowl.vault</groupId>
+        	<artifactId>VaultAPI</artifactId>
+        	<version>1.5</version>
+        </dependency>
     </dependencies>
 </project>

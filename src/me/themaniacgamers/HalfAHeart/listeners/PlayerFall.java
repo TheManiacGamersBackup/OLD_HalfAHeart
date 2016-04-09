@@ -1,8 +1,10 @@
-package me.themaniacgamers.HalfAHeart.Main.listeners;
+package me.themaniacgamers.HalfAHeart.listeners;
 
 import com.sk89q.minecraft.util.commands.ChatColor;
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
+
+import me.themaniacgamers.HalfAHeart.Main;
+import me.themaniacgamers.HalfAHeart.utils.BountifulAPI;
+
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

@@ -1,10 +1,11 @@
-package me.themaniacgamers.HalfAHeart.Main.listeners;
+package me.themaniacgamers.HalfAHeart.listeners;
 
-import me.themaniacgamers.HalfAHeart.Main.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
+
+import me.themaniacgamers.HalfAHeart.Main;
 
 /**
  * Created by Corey on 4/2/2016.

@@ -1,4 +1,4 @@
-package me.themaniacgamers.HalfAHeart.Main.listeners;
+package me.themaniacgamers.HalfAHeart.listeners;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,9 +17,9 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import com.sk89q.minecraft.util.commands.ChatColor;
 
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
-import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
+import me.themaniacgamers.HalfAHeart.Main;
+import me.themaniacgamers.HalfAHeart.managers.ConfigsManager;
+import me.themaniacgamers.HalfAHeart.managers.StringsManager;
 
 /**
  * Created by Corey on 4/2/2016.

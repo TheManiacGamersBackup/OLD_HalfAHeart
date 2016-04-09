@@ -1,10 +1,12 @@
-package me.themaniacgamers.HalfAHeart.Main;
+package me.themaniacgamers.HalfAHeart;
 
 import com.sk89q.minecraft.util.commands.ChatColor;
 import com.sk89q.minecraft.util.commands.Command;
 import com.sk89q.minecraft.util.commands.CommandContext;
-import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
-import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
+
+import me.themaniacgamers.HalfAHeart.managers.ConfigsManager;
+import me.themaniacgamers.HalfAHeart.managers.StringsManager;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;

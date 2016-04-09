@@ -1,4 +1,4 @@
-package me.themaniacgamers.HalfAHeart.Main.managers;
+package me.themaniacgamers.HalfAHeart.managers;
 
 import com.sk89q.minecraft.util.commands.ChatColor;
 

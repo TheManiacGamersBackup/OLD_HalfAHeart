@@ -1,4 +1,4 @@
-package me.themaniacgamers.HalfAHeart.Main.listeners;
+package me.themaniacgamers.HalfAHeart.listeners;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,9 +22,9 @@ import org.bukkit.inventory.meta.FireworkMeta;
 
 import com.sk89q.minecraft.util.commands.ChatColor;
 
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
-import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
+import me.themaniacgamers.HalfAHeart.Main;
+import me.themaniacgamers.HalfAHeart.storage.PlayerStatsOld;
+import me.themaniacgamers.HalfAHeart.utils.BountifulAPI;
 
 /**
  * Created by Corey on 4/9/2016.
@@ -41,7 +41,7 @@ public class PlayerAchListener implements Listener {
         if (e.getEntity().getName().equals("TheManiacGamers")) {
             if (e.getEntity().getKiller() != null) {
                 Player k = (Player) e.getEntity().getPlayer().getKiller();
-                PlayerStats pStats = Main.playerStats.get(k.getUniqueId());
+                PlayerStatsOld pStats = Main.playerStats.get(k.getUniqueId());
                 if (!(pStats.KillTheManiacGamers == "true")) {
                     Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "ACHIEVEMENTS" + ChatColor.RESET +
                             ChatColor.DARK_GRAY + "»");
@@ -71,7 +71,7 @@ public class PlayerAchListener implements Listener {
 
                     //Then apply this to our rocket
                     fw.setFireworkMeta(fwm);
-                    PlayerStats pAchs = Main.playerStats.get(k.getUniqueId());
+                    PlayerStatsOld pAchs = Main.playerStats.get(k.getUniqueId());
                     pAchs.KillTheManiacGamers = "true";
                     pAchs.achievementsam += 1;
                 }
@@ -84,7 +84,7 @@ public class PlayerAchListener implements Listener {
     public void onPlayerJoin(final PlayerJoinEvent e) {
         Player player = (Player) e.getPlayer();
         if (player.getName() == "TheManiacGamers") {
-            PlayerStats pAchs = Main.playerStats.get(player.getUniqueId());
+            PlayerStatsOld pAchs = Main.playerStats.get(player.getUniqueId());
             if (pAchs.KillTheManiacGamers == "false") {
                 pAchs.achievementsam += 1;
                 pAchs.KillTheManiacGamers = "true";
@@ -95,9 +95,9 @@ public class PlayerAchListener implements Listener {
             @Override
             public void run() {
                 final Player pl = e.getPlayer();
-                final PlayerStats stats = new PlayerStats(pl, plugin);
+                final PlayerStatsOld stats = new PlayerStatsOld(pl, plugin);
                 Main.playerStats.put(pl.getUniqueId(), stats);
-                PlayerStats pAchs = Main.playerStats.get(pl.getUniqueId());
+                PlayerStatsOld pAchs = Main.playerStats.get(pl.getUniqueId());
                 if (pAchs.Join50Times.equals("true")) {
                     // do nothing, player already has achievement.
                     return;
@@ -146,7 +146,7 @@ public class PlayerAchListener implements Listener {
         Player player = (Player) e.getPlayer();
         File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
         File pFile = new File(dataBase, File.separator + e.getPlayer().getUniqueId() + ".yml");
-        PlayerStats pAchs = Main.playerStats.get(player.getUniqueId());
+        PlayerStatsOld pAchs = Main.playerStats.get(player.getUniqueId());
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
         playerData.getConfigurationSection("Stats").set("Achievements.KillTheManiacGamers", pAchs.KillTheManiacGamers);
         playerData.getConfigurationSection("Stats").set("Achievements.KillHtgan", pAchs.KillHtgan);

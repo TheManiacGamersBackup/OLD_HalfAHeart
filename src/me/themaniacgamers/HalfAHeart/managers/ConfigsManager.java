@@ -1,8 +1,10 @@
-package me.themaniacgamers.HalfAHeart.Main.managers;
+package me.themaniacgamers.HalfAHeart.managers;
 
 import com.sk89q.minecraft.util.commands.ChatColor;
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.utils.PlayerData;
+
+import me.themaniacgamers.HalfAHeart.Main;
+import me.themaniacgamers.HalfAHeart.utils.PlayerData;
+
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

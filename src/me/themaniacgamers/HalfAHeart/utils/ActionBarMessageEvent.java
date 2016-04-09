@@ -1,20 +1,18 @@
-package me.themaniacgamers.HalfAHeart.Main.utils;
+package me.themaniacgamers.HalfAHeart.utils;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class TabTitleSendEvent extends Event {
+public class ActionBarMessageEvent extends Event {
     private static final HandlerList handlers = new HandlerList();
     private final Player player;
-    private String header;
-    private String footer;
+    private String message;
     private boolean cancelled = false;
 
-    public TabTitleSendEvent(Player player, String header, String footer) {
+    public ActionBarMessageEvent(Player player, String message) {
         this.player = player;
-        this.header = header;
-        this.footer = footer;
+        this.message = message;
     }
 
     public static HandlerList getHandlerList() {
@@ -30,20 +28,12 @@ public class TabTitleSendEvent extends Event {
         return player;
     }
 
-    public String getHeader() {
-        return header;
+    public String getMessage() {
+        return message;
     }
 
-    public void setHeader(String header) {
-        this.header = header;
-    }
-
-    public String getFooter() {
-        return footer;
-    }
-
-    public void setFooter(String footer) {
-        this.footer = footer;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public boolean isCancelled() {

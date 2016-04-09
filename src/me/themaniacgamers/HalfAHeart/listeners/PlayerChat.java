@@ -1,7 +1,8 @@
-package me.themaniacgamers.HalfAHeart.Main.listeners;
+package me.themaniacgamers.HalfAHeart.listeners;
 
-import me.themaniacgamers.HalfAHeart.Main.Main;
 import org.bukkit.event.Listener;
+
+import me.themaniacgamers.HalfAHeart.Main;
 
 /**
  * Created by Corey on 4/2/2016.

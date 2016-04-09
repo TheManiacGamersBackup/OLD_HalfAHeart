@@ -1,4 +1,4 @@
-package me.themaniacgamers.HalfAHeart.Main.utils;
+package me.themaniacgamers.HalfAHeart.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

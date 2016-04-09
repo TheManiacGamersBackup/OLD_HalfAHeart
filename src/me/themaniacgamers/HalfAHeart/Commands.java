@@ -1,4 +1,4 @@
-package me.themaniacgamers.HalfAHeart.Main;
+package me.themaniacgamers.HalfAHeart;
 
 import java.util.Arrays;
 import java.util.UUID;
@@ -16,9 +16,9 @@ import com.sk89q.minecraft.util.commands.Command;
 import com.sk89q.minecraft.util.commands.CommandContext;
 import com.sk89q.minecraft.util.commands.CommandNumberFormatException;
 
-import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
-import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
-import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
+import me.themaniacgamers.HalfAHeart.managers.ConfigsManager;
+import me.themaniacgamers.HalfAHeart.managers.StringsManager;
+import me.themaniacgamers.HalfAHeart.storage.PlayerStatsOld;
 
 /**
  * Created by Corey on 4/2/2016.
@@ -211,8 +211,8 @@ public class Commands {
                 if (!t.isOnline()) {
                     p.sendMessage(ChatColor.RED + "That player is not online!");
                 } else {
-                    PlayerStats senderStats = Main.playerStats.get(p.getUniqueId());
-                    PlayerStats targetStats = Main.playerStats.get(t.getUniqueId());
+                    PlayerStatsOld senderStats = Main.playerStats.get(p.getUniqueId());
+                    PlayerStatsOld targetStats = Main.playerStats.get(t.getUniqueId());
                     if (senderStats.balance >= 1) {
                         if (args.getInteger(1) <= senderStats.balance) {
                             targetStats.bounty += args.getInteger(1);

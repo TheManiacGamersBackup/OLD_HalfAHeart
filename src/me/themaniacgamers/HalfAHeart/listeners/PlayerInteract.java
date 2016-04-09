@@ -1,4 +1,4 @@
-package me.themaniacgamers.HalfAHeart.Main.listeners;
+package me.themaniacgamers.HalfAHeart.listeners;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Egg;
@@ -16,9 +16,9 @@ import org.bukkit.potion.PotionEffectType;
 
 import com.sk89q.minecraft.util.commands.ChatColor;
 
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
-import me.themaniacgamers.HalfAHeart.Main.utils.ParticleEffect;
+import me.themaniacgamers.HalfAHeart.Main;
+import me.themaniacgamers.HalfAHeart.utils.BountifulAPI;
+import me.themaniacgamers.HalfAHeart.utils.ParticleEffect;
 
 /**
  * Created by TheManiacGamers on 4/2/2016.

@@ -1,4 +1,4 @@
-package me.themaniacgamers.HalfAHeart.Main.listeners;
+package me.themaniacgamers.HalfAHeart.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
@@ -11,11 +11,11 @@ import org.bukkit.potion.PotionEffectType;
 
 import com.sk89q.minecraft.util.commands.ChatColor;
 
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
-import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
-import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
-import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
+import me.themaniacgamers.HalfAHeart.Main;
+import me.themaniacgamers.HalfAHeart.managers.ConfigsManager;
+import me.themaniacgamers.HalfAHeart.managers.StringsManager;
+import me.themaniacgamers.HalfAHeart.storage.PlayerStatsOld;
+import me.themaniacgamers.HalfAHeart.utils.BountifulAPI;
 
 /**
  * Created by Corey on 4/2/2016.
@@ -69,8 +69,8 @@ public class PlayerDeath implements Listener {
                 k.addPotionEffect(PotionEffectType.REGENERATION.createEffect(20, 2));
             }
         }
-        PlayerStats playerStats = Main.playerStats.get(p.getUniqueId());
-        PlayerStats killerStats = Main.playerStats.get(k.getUniqueId());
+        PlayerStatsOld playerStats = Main.playerStats.get(p.getUniqueId());
+        PlayerStatsOld killerStats = Main.playerStats.get(k.getUniqueId());
         if (playerStats.bounty > 0) {
             Bukkit.broadcastMessage(strings.defaultMsgs + k.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + " claimed the $" + playerStats.bounty + " bounty on " + p.getDisplayName() + ChatColor.GOLD + "" + ChatColor.BOLD + "!");
             killerStats.balance += playerStats.bounty;

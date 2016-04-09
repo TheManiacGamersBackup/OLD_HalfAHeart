@@ -1,4 +1,4 @@
-package me.themaniacgamers.HalfAHeart.Main.listeners;
+package me.themaniacgamers.HalfAHeart.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import me.themaniacgamers.HalfAHeart.Main.Main;
+import me.themaniacgamers.HalfAHeart.Main;
 
 /**
  * Created by Corey on 4/2/2016.

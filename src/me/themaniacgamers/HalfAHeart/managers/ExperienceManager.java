@@ -1,4 +1,4 @@
-package me.themaniacgamers.HalfAHeart.Main.managers;
+package me.themaniacgamers.HalfAHeart.managers;
 
 import org.apache.commons.lang.Validate;
 import org.bukkit.entity.Player;

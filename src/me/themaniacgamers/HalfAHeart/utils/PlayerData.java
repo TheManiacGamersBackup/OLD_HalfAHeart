@@ -1,12 +1,12 @@
-package me.themaniacgamers.HalfAHeart.Main.utils;
+package me.themaniacgamers.HalfAHeart.utils;
 
 import java.util.HashMap;
 import java.util.UUID;
 
 import org.bukkit.entity.Player;
 
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
+import me.themaniacgamers.HalfAHeart.Main;
+import me.themaniacgamers.HalfAHeart.managers.ConfigsManager;
 
 /**
  * Created by Corey on 4/3/2016.

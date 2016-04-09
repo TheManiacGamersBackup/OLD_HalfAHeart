@@ -1,12 +1,14 @@
-package me.themaniacgamers.HalfAHeart.Main;
+package me.themaniacgamers.HalfAHeart;
 
 import com.sk89q.bukkit.util.CommandsManagerRegistration;
 import com.sk89q.minecraft.util.commands.*;
-import me.themaniacgamers.HalfAHeart.Main.listeners.*;
-import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
-import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
-import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
-import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
+
+import me.themaniacgamers.HalfAHeart.listeners.*;
+import me.themaniacgamers.HalfAHeart.managers.ConfigsManager;
+import me.themaniacgamers.HalfAHeart.managers.StringsManager;
+import me.themaniacgamers.HalfAHeart.storage.PlayerStatsOld;
+import me.themaniacgamers.HalfAHeart.utils.BountifulAPI;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -33,7 +35,7 @@ public class Main extends JavaPlugin implements Listener {
     public Main plugin;
     public Location spawn = null;
     protected ArrayList<Class> cmdClasses;
-    public static HashMap<UUID, PlayerStats> playerStats;
+    public static HashMap<UUID, PlayerStatsOld> playerStats;
     //    public static HashMap<UUID, PlayerAchievements> playerAchievements;
     ConfigsManager configs = ConfigsManager.getInstance();
     StringsManager strings = StringsManager.getInstance();
@@ -107,7 +109,7 @@ public class Main extends JavaPlugin implements Listener {
     public void onDisable() {
         if (Bukkit.getOnlinePlayers().size() != 0) {
             for (Player found : Bukkit.getOnlinePlayers()) {
-                final PlayerStats stats = new PlayerStats(found, plugin);
+                final PlayerStatsOld stats = new PlayerStatsOld(found, plugin);
                 File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
                 File pFile = new File(dataBase, File.separator + found.getPlayer().getUniqueId() + ".yml");
                 final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);

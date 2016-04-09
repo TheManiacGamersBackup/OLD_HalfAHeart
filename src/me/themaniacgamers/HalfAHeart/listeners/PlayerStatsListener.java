@@ -1,4 +1,4 @@
-package me.themaniacgamers.HalfAHeart.Main.listeners;
+package me.themaniacgamers.HalfAHeart.listeners;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,10 +24,10 @@ import org.bukkit.scoreboard.ScoreboardManager;
 
 import com.sk89q.minecraft.util.commands.ChatColor;
 
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
-import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
-import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
+import me.themaniacgamers.HalfAHeart.Main;
+import me.themaniacgamers.HalfAHeart.managers.StringsManager;
+import me.themaniacgamers.HalfAHeart.storage.PlayerStatsOld;
+import me.themaniacgamers.HalfAHeart.utils.BountifulAPI;
 
 public class PlayerStatsListener implements Listener {
     Main plugin;
@@ -44,7 +44,7 @@ public class PlayerStatsListener implements Listener {
             @Override
             public void run() {
                 final Player pl = event.getPlayer();
-                final PlayerStats stats = new PlayerStats(pl, plugin);
+                final PlayerStatsOld stats = new PlayerStatsOld(pl, plugin);
                 Main.playerStats.put(pl.getUniqueId(), stats);
                 Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
                     public void run() {
@@ -118,8 +118,8 @@ public class PlayerStatsListener implements Listener {
         }
         Player killer = e.getEntity().getPlayer().getKiller();
         Player player = e.getEntity();
-        PlayerStats pStats = Main.playerStats.get(player.getUniqueId());
-        PlayerStats kStats = Main.playerStats.get(killer.getUniqueId());
+        PlayerStatsOld pStats = Main.playerStats.get(player.getUniqueId());
+        PlayerStatsOld kStats = Main.playerStats.get(killer.getUniqueId());
         kStats.kills += 1; // kills
         pStats.deaths += 1; // deaths
         kStats.killstreak += 1; // kill streak
@@ -207,7 +207,7 @@ public class PlayerStatsListener implements Listener {
         Player player = (Player) e.getPlayer();
         File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
         File pFile = new File(dataBase, File.separator + e.getPlayer().getUniqueId() + ".yml");
-        PlayerStats pStats = Main.playerStats.get(player.getUniqueId());
+        PlayerStatsOld pStats = Main.playerStats.get(player.getUniqueId());
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
         playerData.getConfigurationSection("Stats").set("Kills", pStats.kills);
         playerData.getConfigurationSection("Stats").set("Deaths", pStats.deaths);

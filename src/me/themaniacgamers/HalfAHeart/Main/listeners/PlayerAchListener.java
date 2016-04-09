@@ -1,9 +1,9 @@
 package me.themaniacgamers.HalfAHeart.Main.listeners;
 
-import com.sk89q.minecraft.util.commands.ChatColor;
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
-import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
+import java.io.File;
+import java.io.IOException;
+import java.util.Random;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
@@ -19,11 +19,12 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.meta.FireworkMeta;
-import org.bukkit.scheduler.BukkitRunnable;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Random;
+import com.sk89q.minecraft.util.commands.ChatColor;
+
+import me.themaniacgamers.HalfAHeart.Main.Main;
+import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
+import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
 
 /**
  * Created by Corey on 4/9/2016.
@@ -37,7 +38,6 @@ public class PlayerAchListener implements Listener {
 
     @EventHandler
     public void onDeath(PlayerDeathEvent e) {
-        Player p = (Player) e.getEntity().getPlayer();
         if (e.getEntity().getName().equals("TheManiacGamers")) {
             if (e.getEntity().getKiller() != null) {
                 Player k = (Player) e.getEntity().getPlayer().getKiller();
@@ -91,7 +91,7 @@ public class PlayerAchListener implements Listener {
                 player.sendMessage(ChatColor.GREEN + "Seeing you are TheManiacGamers, and you cannot kill yourself, I will give you the achievement 'Kill TheManiacGamers' for free!");
             }
         }
-        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new BukkitRunnable() {
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
             @Override
             public void run() {
                 final Player pl = e.getPlayer();

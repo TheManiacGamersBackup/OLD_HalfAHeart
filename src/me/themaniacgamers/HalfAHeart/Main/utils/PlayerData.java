@@ -1,14 +1,12 @@
 package me.themaniacgamers.HalfAHeart.Main.utils;
 
-import com.sk89q.minecraft.util.commands.ChatColor;
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-
-import java.io.File;
 import java.util.HashMap;
 import java.util.UUID;
+
+import org.bukkit.entity.Player;
+
+import me.themaniacgamers.HalfAHeart.Main.Main;
+import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
 
 /**
  * Created by Corey on 4/3/2016.
@@ -200,13 +198,13 @@ public class PlayerData {
     public void saveData() {
         //stuff access configs Manager
         //export all current player stats to file through configs manager
-        Player p = (Player) Bukkit.getOnlinePlayers();
-        Player player = p.getServer().getPlayer(p.getName());
-        UUID playerUUID = player.getUniqueId();
-        File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
-        File pFile = new File(dataBase, File.separator + playerUUID + ".yml");
-        String pName = (ChatColor.BLUE + "" + ChatColor.BOLD + p.getName() + ChatColor.AQUA);
-        Player pl = p.getPlayer();
+        //Player p = (Player) Bukkit.getOnlinePlayers();
+        //Player player = p.getServer().getPlayer(p.getName());
+        //UUID playerUUID = player.getUniqueId();
+        //File dataBase = new File(plugin.getDataFolder(), File.separator + "PlayerDatabase");
+        //File pFile = new File(dataBase, File.separator + playerUUID + ".yml");
+        //String pName = (ChatColor.BLUE + "" + ChatColor.BOLD + p.getName() + ChatColor.AQUA);
+        //Player pl = p.getPlayer();
         configs.getPlayersFile().getConfigurationSection("Stats").set("Kills", pKills);
         configs.getPlayersFile().getConfigurationSection("Stats").set("Deaths", pDeaths);
         configs.getPlayersFile().getConfigurationSection("Stats").set("Bounty", pBounty);

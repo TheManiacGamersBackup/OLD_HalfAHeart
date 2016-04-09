@@ -1,25 +1,13 @@
 package me.themaniacgamers.HalfAHeart.Main.stored;
 
-import com.sk89q.minecraft.util.commands.ChatColor;
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
-import org.bukkit.Bukkit;
+import java.io.File;
+
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.potion.PotionEffectType;
-import org.bukkit.scoreboard.*;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.DecimalFormat;
-import java.util.UUID;
+import me.themaniacgamers.HalfAHeart.Main.Main;
 
 /**
  * @author Corey

@@ -1,10 +1,5 @@
 package me.themaniacgamers.HalfAHeart.Main.listeners;
 
-import com.sk89q.minecraft.util.commands.ChatColor;
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
-import me.themaniacgamers.HalfAHeart.Main.utils.ParticleEffect;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Egg;
 import org.bukkit.entity.EnderPearl;
@@ -15,10 +10,15 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
-import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.potion.PotionEffectType;
+
+import com.sk89q.minecraft.util.commands.ChatColor;
+
+import me.themaniacgamers.HalfAHeart.Main.Main;
+import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
+import me.themaniacgamers.HalfAHeart.Main.utils.ParticleEffect;
 
 /**
  * Created by TheManiacGamers on 4/2/2016.
@@ -81,16 +81,16 @@ public class PlayerInteract implements Listener {
     public void smokebombThrow(ProjectileHitEvent e) {
         if (e.getEntity() instanceof EnderPearl) {
             EnderPearl smokebomb = (EnderPearl) e.getEntity();
-            double posX = e.getEntity().getLocation().getX();
-            double posY = e.getEntity().getLocation().getY();
-            double posZ = e.getEntity().getLocation().getZ();
+//            double posX = e.getEntity().getLocation().getX();
+//            double posY = e.getEntity().getLocation().getY();
+//            double posZ = e.getEntity().getLocation().getZ();
 
             for (Entity nearby : smokebomb.getNearbyEntities(5, 5, 5)) {
                 if (!(nearby instanceof Player)) { // You can't damage entities
                     continue;
                 }
                 Player nearbyp = (Player) nearby;
-                Location loc = smokebomb.getLocation();
+                //Location loc = smokebomb.getLocation();
 //                grenade.getWorld().createExplosion(loc, 0.0F);
 //                ParticleEffect.EXPLOSION_LARGE.display(1, 1, 1, 1, 100, grenade.getLocation(), nearbypEffect);
 //                BountifulAPI.sendActionBar(nearbyp.getPlayer(), ChatColor.GOLD + "" + ChatColor.BOLD + "Fire in the hole!!!");
@@ -117,7 +117,6 @@ public class PlayerInteract implements Listener {
 
     @EventHandler
     public void onPlayerTeleport(PlayerTeleportEvent e) {
-        Player p = e.getPlayer();
         PlayerTeleportEvent.TeleportCause cause = e.getCause();
         if (cause.equals(PlayerTeleportEvent.TeleportCause.ENDER_PEARL)
                 || cause.equals(PlayerTeleportEvent.TeleportCause.UNKNOWN)) {

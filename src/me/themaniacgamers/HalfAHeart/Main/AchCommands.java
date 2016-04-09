@@ -26,8 +26,8 @@ public class AchCommands {
     StringsManager strings = StringsManager.getInstance();
     public static Inventory achInv = Bukkit.createInventory(null, 45, ChatColor.BLUE + "Achievements");
 
-    private String hah = (ChatColor.AQUA + "-=[ " + ChatColor.BLUE + "" + ChatColor.BOLD + "Half A Heart" + ChatColor.AQUA + " ]=-");
-    private String infoPrefix = (ChatColor.AQUA + "-=[ " + ChatColor.BLUE + "" + ChatColor.BOLD + "Information" + ChatColor.AQUA + " ]=-");
+    //private String hah = (ChatColor.AQUA + "-=[ " + ChatColor.BLUE + "" + ChatColor.BOLD + "Half A Heart" + ChatColor.AQUA + " ]=-");
+    //private String infoPrefix = (ChatColor.AQUA + "-=[ " + ChatColor.BLUE + "" + ChatColor.BOLD + "Information" + ChatColor.AQUA + " ]=-");
 
     public AchCommands(Main plugin) {
         this.plugin = plugin;

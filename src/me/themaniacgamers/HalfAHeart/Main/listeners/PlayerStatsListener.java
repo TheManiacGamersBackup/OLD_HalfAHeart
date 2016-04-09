@@ -1,37 +1,33 @@
 package me.themaniacgamers.HalfAHeart.Main.listeners;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.DecimalFormat;
+
+import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Score;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
+
 import com.sk89q.minecraft.util.commands.ChatColor;
+
 import me.themaniacgamers.HalfAHeart.Main.Main;
 import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
 import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
 import me.themaniacgamers.HalfAHeart.Main.utils.BountifulAPI;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Projectile;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerKickEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.potion.PotionEffectType;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitTask;
-import org.bukkit.scoreboard.*;
-
-import java.io.File;
-import java.io.IOException;
-import java.text.DecimalFormat;
-import java.util.UUID;
-
-import static sun.audio.AudioPlayer.player;
 
 public class PlayerStatsListener implements Listener {
     Main plugin;
@@ -44,13 +40,13 @@ public class PlayerStatsListener implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void onJoin(final PlayerJoinEvent event) {
 
-        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new BukkitRunnable() {
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
             @Override
             public void run() {
                 final Player pl = event.getPlayer();
                 final PlayerStats stats = new PlayerStats(pl, plugin);
                 Main.playerStats.put(pl.getUniqueId(), stats);
-                Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new BukkitRunnable() {
+                Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
                     public void run() {
                         ScoreboardManager manager = Bukkit.getScoreboardManager();
                         final Scoreboard board = manager.getNewScoreboard();
@@ -143,49 +139,49 @@ public class PlayerStatsListener implements Listener {
             killer.sendMessage(strings.defaultMsgs + ChatColor.GREEN + "" + ChatColor.BOLD + "You gained 1 level, 50 strength and 100 dollars!");
         }
         if (kStats.kills == 500) {
-            String user = killer.getName();
+            //String user = killer.getName();
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex promote " + killer.getName());
             Bukkit.broadcastMessage(strings.defaultMsgs + killer.getDisplayName() + ChatColor.GREEN + "" + ChatColor.BOLD + " has been promoted to Thug for reaching 500 kills!");
             kStats.group = "Thug";
         }
         if (kStats.kills == 1500) {
-            String user = player.getName();
+            //String user = player.getName();
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex promote " + killer.getName());
             Bukkit.broadcastMessage(strings.defaultMsgs + killer.getDisplayName() + ChatColor.GREEN + "" + ChatColor.BOLD + " has been promoted to Soldier for reaching 1500 kills!");
             kStats.group = "Soldier";
         }
         if (kStats.kills == 3000) {
-            String user = player.getName();
+            //String user = player.getName();
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex promote " + killer.getName());
             Bukkit.broadcastMessage(strings.defaultMsgs + killer.getDisplayName() + ChatColor.GREEN + "" + ChatColor.BOLD + " has been promoted to Hustler for reaching 3000 kills!");
             kStats.group = "Hustler";
         }
         if (kStats.kills == 4500) {
-            String user = player.getName();
+            //String user = player.getName();
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex promote " + killer.getName());
             Bukkit.broadcastMessage(strings.defaultMsgs + killer.getDisplayName() + ChatColor.GREEN + "" + ChatColor.BOLD + " has been promoted to Boss for reaching 4500 kills!");
             kStats.group = "Boss";
         }
         if (kStats.kills == 6000) {
-            String user = player.getName();
+            //String user = player.getName();
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex promote " + killer.getName());
             Bukkit.broadcastMessage(strings.defaultMsgs + killer.getDisplayName() + ChatColor.GREEN + "" + ChatColor.BOLD + " has been promoted to Facilitator for reaching 6000 kills!");
             kStats.group = "Facilitator";
         }
         if (kStats.kills == 8000) {
-            String user = player.getName();
+            //String user = player.getName();
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex promote " + killer.getName());
             Bukkit.broadcastMessage(strings.defaultMsgs + killer.getDisplayName() + ChatColor.GREEN + "" + ChatColor.BOLD + " has been promoted to Kingpin for reaching 8000 kills!");
             kStats.group = "Kingpin";
         }
         if (kStats.kills == 10000) {
-            String user = player.getName();
+            //String user = player.getName();
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex promote " + killer.getName());
             Bukkit.broadcastMessage(strings.defaultMsgs + killer.getDisplayName() + ChatColor.GREEN + "" + ChatColor.BOLD + " has been promoted to Public Enemy for reaching 10000 kills!");
             kStats.group = "Public Enemy";
         }
         if (kStats.kills == 15000) {
-            String user = player.getName();
+            //String user = player.getName();
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex promote " + killer.getName());
             Bukkit.broadcastMessage(strings.defaultMsgs + killer.getDisplayName() + ChatColor.GREEN + "" + ChatColor.BOLD + " has been promoted to God for reaching 15000 kills!");
             kStats.group = "God";

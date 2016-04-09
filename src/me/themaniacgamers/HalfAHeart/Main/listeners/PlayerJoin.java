@@ -1,9 +1,10 @@
 package me.themaniacgamers.HalfAHeart.Main.listeners;
 
-import com.sk89q.minecraft.util.commands.ChatColor;
-import me.themaniacgamers.HalfAHeart.Main.Main;
-import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
-import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.UUID;
+
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -13,12 +14,12 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.scheduler.BukkitRunnable;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.UUID;
+import com.sk89q.minecraft.util.commands.ChatColor;
+
+import me.themaniacgamers.HalfAHeart.Main.Main;
+import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
+import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
 
 /**
  * Created by Corey on 4/2/2016.

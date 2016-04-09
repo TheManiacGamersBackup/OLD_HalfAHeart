@@ -1,26 +1,24 @@
 package me.themaniacgamers.HalfAHeart.Main;
 
-import com.sk89q.minecraft.util.commands.ChatColor;
-import com.sk89q.minecraft.util.commands.Command;
-import com.sk89q.minecraft.util.commands.CommandContext;
-import com.sk89q.minecraft.util.commands.CommandNumberFormatException;
-import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
-import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
-import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
+import java.util.Arrays;
+import java.util.UUID;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.UUID;
+import com.sk89q.minecraft.util.commands.ChatColor;
+import com.sk89q.minecraft.util.commands.Command;
+import com.sk89q.minecraft.util.commands.CommandContext;
+import com.sk89q.minecraft.util.commands.CommandNumberFormatException;
+
+import me.themaniacgamers.HalfAHeart.Main.managers.ConfigsManager;
+import me.themaniacgamers.HalfAHeart.Main.managers.StringsManager;
+import me.themaniacgamers.HalfAHeart.Main.stored.PlayerStats;
 
 /**
  * Created by Corey on 4/2/2016.
@@ -105,12 +103,13 @@ public class Commands {
         if (sender instanceof Player) {
             if (sender.hasPermission("Hah.Spawn") || sender.hasPermission("Hah.*") || sender.hasPermission("Hah.Donator")) {
                 Player p = (Player) sender;
-                String world = configs.getConfig().getString("Spawn.World");
+                //String world = configs.getConfig().getString("Spawn.World");
                 double x = configs.getConfig().getDouble("Spawn.X");
                 double y = configs.getConfig().getDouble("Spawn.Y");
                 double z = configs.getConfig().getDouble("Spawn.Z");
                 double yaw = configs.getConfig().getDouble("Spawn.Yaw");
                 double pitch = configs.getConfig().getDouble("Spawn.Pitch");
+                //TODO this gets player's world but may not be actually the spawn world!
                 Location spawn = new Location(p.getWorld(), x, y, z, (float) yaw, (float) pitch);
                 p.teleport(spawn);
                 // RETURN NOT NEEDED
@@ -162,7 +161,7 @@ public class Commands {
                         p.sendMessage(ChatColor.RED + "Checkpoint " + args.getString(0) + " does not exist!");
                         return;
                     }
-                    String world = configs.getCheckpoints().getString("Checkpoints." + args.getString(0) + ".World");
+                    //String world = configs.getCheckpoints().getString("Checkpoints." + args.getString(0) + ".World");
                     double x = configs.getCheckpoints().getDouble("Checkpoints." + args.getString(0) + ".X");
                     double y = configs.getCheckpoints().getDouble("Checkpoints." + args.getString(0) + ".Y");
                     double z = configs.getCheckpoints().getDouble("Checkpoints." + args.getString(0) + ".Z");
@@ -263,15 +262,16 @@ public class Commands {
     public void onServerStop(CommandContext args, CommandSender sender) {
         if (sender.hasPermission("Hah.Stop")) {
             if (Bukkit.getOnlinePlayers().size() != 0) {
-                for (final Player found : Bukkit.getOnlinePlayers()) {
-                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-                        @Override
-                        public void run() {
-                            Bukkit.broadcastMessage("[Server] Server being stopped now!");
-                            Bukkit.shutdown();
-                        }
-                    }, 40L);
-                }
+            	//TODO WTF IS THIS CODE?!
+//                for (final Player found : Bukkit.getOnlinePlayers()) {
+//                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            Bukkit.broadcastMessage("[Server] Server being stopped now!");
+//                            Bukkit.shutdown();
+//                        }
+//                    }, 40L);
+//                }
             } else {
                 Bukkit.broadcastMessage("[Server] Shutting down!");
                 Bukkit.shutdown();

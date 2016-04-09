@@ -1,6 +1,5 @@
 package me.themaniacgamers.HalfAHeart.Main.listeners;
 
-import me.themaniacgamers.HalfAHeart.Main.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -9,7 +8,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.bukkit.scheduler.BukkitRunnable;
+
+import me.themaniacgamers.HalfAHeart.Main.Main;
 
 /**
  * Created by Corey on 4/2/2016.
@@ -25,7 +25,7 @@ public class PlayerMovement implements Listener {
 
     @EventHandler
     public void onHoldingEnderEye(final PlayerMoveEvent e) {
-        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new BukkitRunnable() {
+        Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
             @Override
             public void run() {
                 Player pl = (Player) e.getPlayer();
